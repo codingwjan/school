@@ -1,0 +1,111 @@
+body{
+    background: #f2f3f7;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    color: #7b7e8c;
+    font-family: montserrat,arial,verdana;
+    }
+    
+    .bevelup{
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.1),-6px -6px 10px white;
+    border-radius: 10px;
+    }
+    .container{
+    height: 500px;
+    width: 600px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    }
+    .title{
+    font-family: 'Roboto',sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    }
+    .input-section{
+    height: 150px;
+    }
+
+ @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+    }
+  }
+  
+
+    button{
+    border: 0;
+    padding: 10px 0;
+    width: 160px;
+    color: inherit;
+    font-size: 18px;
+    animation: scale-down-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    
+
+    .scale-up-center {
+        -webkit-animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+    }
+
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+  }
+
+  @keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+
+    button:hover{
+    cursor: pointer;
+    animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+    }
+    
+  
+
+    input,select{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    }
+    .beveldn{
+    box-shadow: inset 2px 2px 2px #cbced1;
+    }
+    #resultID{
+    margin-top: 20px;
+    }
