@@ -1,0 +1,86 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #FF5A00FF 1%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #FFDB00FF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #FF0049FF 1%, #FF000000 99%),radial-gradient(142% 91% at 111% 84%, #FF7000FF 0%, #FF0000FF 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    animation: color-change 15s infinite;
+    font-size: 60px;
+    font-weight: 600;
+    padding: 1%;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+}
+
+.title:hover {
+    transition: transform .5s ease;
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+  }
+
+.card {
+    margin: 48px;
+    width: 400px;
+    text-align: center;
+    color: white;
+}
+
+.glass {
+    padding: 1%;
+
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+}
+
+.card-title {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+.card-text {
+    color: white;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+}
+
+a:hover {
+    color: aqua;
+    text-decoration: underline;
+}
+
+.card:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-text {
+    color: aquamarine;
+}

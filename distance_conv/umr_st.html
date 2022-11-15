@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umrechnung von Längeneinheiten</title>
+    <link rel="stylesheet" href="umr_le.css">
+    <script src="umr_le.js"></script>
+
+</head>
+
+<body>
+    <div class="container bevelup">
+        <div class="title">
+            Einheitenumrechner
+        </div>
+        <div class="input-section">
+            <label class="label">Wert:</label>
+            <input type="number" class="beveldn" value="5" id="inputID">
+            <br>
+            <label class="label">Von</label>
+            <select id="sourceUnitID" class="bevelup">
+                <option value="b">byte</option>
+                <option value="kb">kilobyte</option>
+                <option value="mb">megabyte</option>
+                <option value="gb">gigabyte</option>
+                <option value="tb">terabyte</option>
+                <option value="pb">petabyte</option>
+                <option value="eb">exabyte</option>
+                <option value="gib">gibibyte</option>
+                <option value="mib">mebibyte</option>
+                <option value="kib">kibibyte</option>
+                <option value="tib">tebibyte</option>
+                <option value="pib">pebibyte</option>
+                <option value="eib">exbibyte</option>
+
+
+            </select>
+            <br>
+            <label class="label">Nach</label>
+            <select id="targetUnitID" class="bevelup">
+                <option value="b">byte</option>
+                <option value="kb">kilobyte</option>
+                <option value="mb">megabyte</option>
+                <option value="gb">gigabyte</option>
+                <option value="tb">terabyte</option>
+                <option value="pb">petabyte</option>
+                <option value="eb">exabyte</option>
+                <option value="gib">gibibyte</option>
+                <option value="mib">mebibyte</option>
+                <option value="kib">kibibyte</option>
+                <option value="tib">tebibyte</option>
+                <option value="pib">pebibyte</option>
+                <option value="eib">exbibyte</option>
+            </select>
+        </div>
+        <button class="bevelup" onclick="selectState()">Konvertieren</button>
+        <div id="resultID">
+            noch nichts convertiert
+        </div>
+    </div>
+</body>
+
+</html>
