@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+.content {
+  margin-left: 13%;
+  margin-top: 5%;
+  justify-content: center;
+}
+
+.welcome_message {
+  font-size: 40px;
+}
+
+.welcome_title{
+  color: white;
+  font-weight: 400;
+}
+
+.welcome_name{
+  color: #42a5f5;
+  font-weight: 400;
+}
+
+.secure {
+  display: flex;
+  margin-top: 4%;
+  width: 40%;
+}
+
+.secure_title {
+  font-weight: 400;
+  margin-left: 3%;
+  color: #42a5f5;
+  font-size: 35px;
+}
+
+.secure_p {
+  margin-left: 3%;
+  flex-direction: column;
+  align-items:center;
+  font-size: 25px;
+  color: white;
+  font-weight: 400;
+}
+
+.web_based {
+  display: flex;
+  margin-top: 4%;
+  width: 40%;
+}
+
+.web_based_title {
+  font-size: 35px;
+  font-weight: 400;
+  margin-left: 3%;
+  color: #42a5f5;
+}
+
+.web_based_p {
+  margin-left: 3%;
+  flex-direction: column;
+  align-items:center;
+  font-size: 25px;
+  color: white;
+  font-weight: 400;
+}
+
+.design_focused {
+  display: flex;
+  margin-top: 4%;
+  width: 40%;
+}
+
+.design_focused_title {
+  font-size: 35px;
+  font-weight: 400;
+  margin-left: 3%;
+  color: #42a5f5;
+}
+
+.design_focused_p {
+  margin-left: 3%;
+  flex-direction: column;
+  align-items:center;
+  font-size: 25px;
+  color: white;
+  font-weight: 400;
+}
+
+.calc_graphic {
+  float: right;
+  width: 50%;
+  height: auto;
+  margin-top: 1%;
+}
+.calc {
+  width: 65%;
+  height: 65%;
+}
+
+@media screen and (max-width:1800px) {
+  .calc_graphic {
+   margin-top: 7%;
+   scale: 110%;
+  }
+}
+
+@media screen and (max-width:1400px) {
+     .calc_graphic {
+      margin-top: 10%;
+      scale: 120%;
+      
+     }
+  }
+
+  @media screen and (max-width:1140px) {
+    .calc_graphic {
+     display: none;
+     
+    }
+
+    .secure {
+      display: flex;
+      margin-top: 4%;
+      width: 70%;
+    }
+    .web_based {
+      display: flex;
+      margin-top: 4%;
+      width: 70%;
+    }
+    .design_focused {
+      display: flex;
+      margin-top: 4%;
+      width: 70%;
+    }
+ }
+
+ @media screen and (min-width:2600px) {
+  .calc_graphic {
+   scale: 90%;
+   margin-top: -3%;
+  }
+
+  .maindiv {
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width:1800px) {
+  
+
+  .maindiv {
+    margin-left: 5%;
+    margin-top: 3%;
+    scale: 90%;
+  }
+
+  .calc_graphic {
+    scale: 120%;
+    margin-top: 3%;
+   }
+
+   .calc {
+    margin-left: 10%;
+   }
+}
+
+.cont_button {
+  margin-left: 13%;
+  margin-top: 3%;
+}
