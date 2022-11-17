@@ -9,19 +9,6 @@ public abstract class Flugzeug {
     this.maxSpeed = maxSpeed;
     this.anzahlFluegel = anzahlFluegel;
   }
-
-  //Verkehrsflugzeug
-  public class Verkehrsflugzeug extends Flugzeug {
-    private int anzahlFluegel;             // Anzahl Flügelpaare
-
-    public Verkehrsflugzeug(String hersteller, int maxSpeed, int anzahlFluegel, int anzahlSitze, int anzahlToiletten, int anzahlKabinen, int anzahlFlugbegleiter) {
-      super(hersteller, maxSpeed, anzahlFluegel);
-      this.anzahlSitze = anzahlSitze;
-      this.anzahlToiletten = anzahlToiletten;
-      this.anzahlKabinen = anzahlKabinen;
-      this.anzahlFlugbegleiter = anzahlFlugbegleiter;
-    }
-  }
  
   public String getImmatNummer() {
     return immatNummer;
@@ -38,5 +25,4 @@ public abstract class Flugzeug {
   abstract public boolean getLooping();
  
   // weitere Methoden
-
 }
