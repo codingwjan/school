@@ -6,12 +6,12 @@
 
     <title>Welcome to Converter</title>    
     
-    <link rel="stylesheet" href="/converter_mit_eingabe/css/index.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="./css/ionicons.min.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/queries.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
@@ -57,7 +57,6 @@
         </div>
       </header>
 
-      <img class="rds-logo-banner" src="img/logos/RDS-logo-2x.png" alt="RDS_Logo" height="150px" width="150px">
 
       <div class="heading-handles-container">
         <span class="welcome-text">
@@ -70,13 +69,14 @@
           </h1>
           
         </span>
-        <img class="welcome-image" src="/converter_mit_eingabe/img/welcome-image.svg" alt="Welcome_Image">
+        <img class="welcome-image" src="./img/welcome-image.svg" alt="Welcome_Image">
       </div>
 
       <div class="cock">
             <div class="news-feeds-container">
-                    <span class="new-inside" onclick="document.location='/converter_mit_eingabe/umr_le.html'">distance converter</span>
-                    <span class="new-inside" onclick="document.location='/converter_mit_eingabe/umr_st.html'">storage size converter</span>
+                    <span class="new-inside" onclick="document.location='./umr_le.html'">distance unit converter</span>
+                    <span class="new-inside" onclick="document.location='./umr_st.html'">storage unit converter</span>
+
             </div>
       </div>
     </div>
@@ -85,49 +85,7 @@
 
     
 
-    
-
-    <script type="module" src="./js/login.js"></script>
-    <script type="module" src="./js/navbar.js"></script>
-    <script src="js/darkmode.js"></script>
-  <!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
+  
 
 
 </body></html>
