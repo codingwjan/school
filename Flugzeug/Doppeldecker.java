@@ -22,27 +22,6 @@ public class Doppeldecker extends Flugzeug {
         return maxPassagiere;
     }
 
-    public void setMaxPassagiere(int maxPassagiere) {
-        this.maxPassagiere = maxPassagiere;
-    }
-
-    public boolean getoffenesCockpit() {
-        return offenesCockpit;
-    }
-
-
-    public boolean getLoopingMöglichkeit() {
-        return loopingMöglich;
-    }
-
-
-    public void offenesCockpit(boolean openTop) {
-        if (this.offenesCockpit == true) {
-            this.offenesCockpit = openTop;
-        }
-    }
-
-
     public boolean getLooping() {
 
         if (getMaxSpeed() < 320) {

@@ -4,7 +4,7 @@ public class Main {
 
         public static void main(String[] args) {
             Verkehrsflugzeug verkehrsflugzeug = new Verkehrsflugzeug("Boeing", 800, 300, "D-ABCD");
-            Doppeldecker doppeldecker = new Doppeldecker("Airbus", "D-ABCE", 400, 100, true, 500, true);
+            Doppeldecker doppeldecker = new Doppeldecker("Airbus","F-BCDE", 400, 100, true, 500, true);
 
             System.out.println("Verkehrsflugzeug:");
             System.out.println("Hersteller: " + verkehrsflugzeug.getHersteller());
