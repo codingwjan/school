@@ -1,12 +1,22 @@
-//import scanner
 import java.util.Scanner;
 
-public class main {
+public class loop_übung {
 	public static void main(String args[]) {
-		Scanner input = new Scanner(System.in);
-		boolean b = true; 
-		while(b == true) {
-			System.out.println("loop is active");
+		boolean t = true;
+		while(t == true){
+		dings();
+		}
+	}	
+	public static void dings(){
+		
+		Scanner input = new Scanner( System.in );
+		String message;
+		message = input.nextLine();
+		if(message.equals("hello world")) {
+			System.out.println(message + " does not contain hello world and therefor is false");
+		}else{
+			System.out.println(message + " does not contain hello world and therefor is false");
 		}
 	}
+
 }

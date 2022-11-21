@@ -1,0 +1,70 @@
+Fragen die in der arbeit dran kommen könnten: 
+
+Was ist ein Konstruktor?
+
+Was ist eine klasse?
+Eine klasse ist eine art Fertigstellung eines Bauplans! Der Bauplan (konstruktor) wäre z.B. Flugzeug und die klasse würde dann die details dazu bestimmen (farbe, Motoren, Anzahl der sitze etc.)
+
+Wie bilde ich einen while schleife?
+
+public class Main {
+	public static void main(String args[]) {
+		boolean b = true;
+		while(b =0 true) {
+			System.out.print('loop is running');
+		}
+	}
+}
+
+Wie loope ich ein Programm für immer?
+Mit einer while schleife
+
+Wie kann ich einen input in die Konsole schreiben?
+
+1. Man muss den scanner importieren
+
+Import java.util.Scanner
+
+2. Man muss den scanner deklarieren
+Scanner input = new Scanner ( System.in )
+
+3. Dann kann man mit dieser Zeile code ein Konsolen input verursachen
+input.nextLine()
+
+
+Auf was für einem System basiert java?
+Write once run everywhere 
+
+Oder unter programmieren:
+Write once debug everywhere
+
+Was sind die verschiedenen Speichergrößen?
+Byte (nur 0 / 1)
+Short
+Long 
+Int	(ganze zahlen)
+Boolean (true / false)
+String (einfach alles)
+Double (Komma zahlen)
+Char 
+Float 
+
+Zeichne einen pap für ein if hello world Programm!
+Done 
+
+Zeichne ein struktogramm für ein if hello world Programm!
+Done
+
+Zeichne ein uml für die klasse boot, klasse Fischer Bötchen und für die klasse Kreuzfahrt!
+
+Wofür steht && was ist der unterschied uml/ pap?
+
+Schreibe ein if hello world Programm auf Papier!
+
+Unterschied zwischen switch case und if statements?
+
+Wann benutzt man was?
+
+Was ist der unterschied zwischen do while und while?
+
+Was ist der Unterschied zwischen Klassen, Objekten und konstruktoren? 
