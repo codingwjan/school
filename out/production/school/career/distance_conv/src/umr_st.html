@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umrechnung von Längeneinheiten</title>
+    <link rel="stylesheet" href="/distance_conv/css/umr_le.css">
+    <script src="umr_st.js"></script>
+
+</head>
+
+<body>
+    <div class="container bevelup">
+        <div class="title">
+            Einheitenumrechner
+        </div>
+        <div class="input-section">
+            <label class="label">Wert:</label>
+            <input type="number" class="beveldn" value="5" id="inputID">
+            <br>
+            <label class="label">Von</label>
+            <select id="sourceUnitID" class="bevelup">
+                <option value="Byte" class="Byte">Byte</option>
+                <option value="Bit" class="Bit">Bit</option>
+                <option value="KB" class="KB">KB</option>
+                <option value="KiB" class="KiB">KiB</option>
+                <option value="Kbit" class="Kbit">Kbit</option>
+                <option value="Kibit" class="Kibit">Kibit</option>
+                <option value="MB" class="MB">MB</option>
+                <option value="MiB" class="MiB">MiB</option>
+                <option value="Mbit" class="Mbit">Mbit</option>
+                <option value="Mibit" class="Mibit">Mibit</option>
+                <option value="GB" class="GB">GB</option>
+                <option value="GiB" class="GiB">GiB</option>
+                <option value="Gbit" class="Gbit">Gbit</option>
+                <option value="Gibit" class="Gibit">Gibit</option>
+                <option value="TB" class="TB">TB</option>
+                <option value="TiB" class="TiB">TiB</option>
+                <option value="Tbit" class="Tbit">Tbit</option>
+                <option value="Tibit" class="Tibit">Tibit</option>
+
+
+            </select>
+            <br>
+            <label class="label">Nach</label>
+            <select id="targetUnitID" class="bevelup">
+                <option value="Byte" class="Byte">Byte</option>
+                <option value="Bit" class="Bit">Bit</option>
+                <option value="KB" class="KB">KB</option>
+                <option value="KiB" class="KiB">KiB</option>
+                <option value="Kbit" class="Kbit">Kbit</option>
+                <option value="Kibit" class="Kibit">Kibit</option>
+                <option value="MB" class="MB">MB</option>
+                <option value="MiB" class="MiB">MiB</option>
+                <option value="Mbit" class="Mbit">Mbit</option>
+                <option value="Mibit" class="Mibit">Mibit</option>
+                <option value="GB" class="GB">GB</option>
+                <option value="GiB" class="GiB">GiB</option>
+                <option value="Gbit" class="Gbit">Gbit</option>
+                <option value="Gibit" class="Gibit">Gibit</option>
+                <option value="TB" class="TB">TB</option>
+                <option value="TiB" class="TiB">TiB</option>
+                <option value="Tbit" class="Tbit">Tbit</option>
+                <option value="Tibit" class="Tibit">Tibit</option>
+            </select>
+        </div>
+        <button class="bevelup" onclick="convert()">Konvertieren</button>
+        <div id="resultID">
+            noch nichts convertiert
+        </div>
+        <button class="bevelup" onclick="document.location='./index.html'">Zurück zum Menü</button>
+    </div>
+</body>
+
+</html>

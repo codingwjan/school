@@ -1,0 +1,120 @@
+body{
+    background: rgb(2,0,36);
+    height: 100vh;
+    background: linear-gradient(315deg, rgba(2,0,36,1) 0%, rgba(118,51,194,1) 50%, rgba(1,90,148,1) 100%); 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    color: #f9f871;
+    font-family: montserrat,arial,verdana;
+    }
+    
+    .bevelup{
+    border-radius: 10px;
+    }
+    
+    .container{
+    height: 500px;
+    width: 600px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+
+    .title{
+    font-family: 'Roboto',sans-serif;
+    font-size: 45px;
+    font-weight: lighter;
+    margin-bottom: 3%;
+    }
+    .input-section{
+    height: 150px;    }
+
+ @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+    }
+  }
+
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+    }
+  }
+
+    button{
+    border: 0;
+    padding: 10px 0;
+    width: 160px;
+    color: black;
+    font-size: 18px;
+    animation: scale-down-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    .scale-up-center {
+        -webkit-animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+                animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+    }
+
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+  }
+
+  @keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
+    button:hover{
+    cursor: pointer;
+    animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
+    background-color: #f9f871;
+    }
+    
+    input,select{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    }
+    .beveldn{
+    box-shadow: inset 2px 2px 2px #cbced1;
+    }
+    #resultID{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    }
