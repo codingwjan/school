@@ -207,7 +207,7 @@ function selectState() {
     }
     else {
         {
-            alert('you cant convert into the same unit')
+            document.getElementById('resultID').innerHTML = '/distance_conv/img/undraw_not_found_re_bh2e.svg'
           }
     }
 
