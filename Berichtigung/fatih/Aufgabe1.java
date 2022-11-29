@@ -2,7 +2,7 @@ package firstProject.Klassenarbeit;
 
 import java.util.Scanner;
 
-public class NummerEins {
+public class Aufgabe1 {
 	public static void main(String args[]) {
 		
 		int input;
