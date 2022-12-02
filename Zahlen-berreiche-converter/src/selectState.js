@@ -1,7 +1,7 @@
 function selectState() {
-    var endState = document.getElementById('targetUnitID').value
-    var selState = document.getElementById('sourceUnitID').value
-    var inputID = document.getElementById("inputID").value
+    let endState = document.getElementById('targetUnitID').value
+    let selState = document.getElementById('sourceUnitID').value
+    let inputID = document.getElementById("inputID").value
 
     if (selState == "bin" && endState == "dec") {
         document.getElementById("resultID").innerHTML = binToDec(inputID)
@@ -35,8 +35,8 @@ function selectState() {
 function binToDec(bin) {
     //check if the input is a binary number
     if (bin.match(/^[0-1]+$/)) {
-        var dec = 0
-        for (var i = 0; i < bin.length; i++) {
+        let dec = 0
+        for (let i = 0; i < bin.length; i++) {
             dec += bin[i] * Math.pow(2, bin.length - i - 1)
         }
         return dec
@@ -46,7 +46,7 @@ function binToDec(bin) {
 }
 
 function decToBin(dec) {
-    var bin = ""
+    let bin = ""
     while (dec > 0) {
         bin = dec % 2 + bin
         dec = Math.floor(dec / 2)
@@ -55,16 +55,16 @@ function decToBin(dec) {
 }
 
 function decToHex(dec) {
-    //if dec is between 16 and 21 dont replace with letters
+    //if dec is between 16 and 21 don't replace with letters
     if (dec >= 16 && dec <= 21) {
-        var hex = ""
+        let hex = ""
         while (dec > 0) {
             hex = dec % 16 + hex
             dec = Math.floor(dec / 16)
         }
         return hex
     }else {
-        var hex = ""
+        let hex = ""
         while (dec > 0) {
             hex = dec % 16 + hex
             dec = Math.floor(dec / 16)
@@ -81,8 +81,8 @@ function decToHex(dec) {
 }
 
 function hexToDec(hex) {
-    var dec = 0
-    for (var i = 0; i < hex.length; i++) {
+    let dec = 0
+    for (let i = 0; i < hex.length; i++) {
         dec += hex[i] * Math.pow(16, hex.length - i - 1)
     }
     return dec
@@ -91,13 +91,12 @@ function hexToDec(hex) {
 function binToHex(bin) {
     //check if the input is a binary number
     if (bin.match(/^[0-1]+$/)) {
-        var dec = binToDec(bin)
-        //if dec is between 16 and 21 dont replace with letters
+        let dec = binToDec(bin)
+        //if dec is between 16 and 21 don't replace with letters
         if (dec >= 16 && dec <= 21) {
-            var hex = decToHex(dec)
-            return hex
+            return decToHex(dec)
         }else {
-            var hex = ""
+            let hex = ""
             while (dec > 0) {
                 hex = dec % 16 + hex
                 dec = Math.floor(dec / 16)
@@ -116,13 +115,12 @@ function binToHex(bin) {
 }
 
 function hexToBin(hex) {
-    var dec = hexToDec(hex)
-    var bin = decToBin(dec)
-    return bin
+    let dec = hexToDec(hex)
+    return decToBin(dec)
 }
 
 function decToOct(dec) {
-    var oct = ""
+    let oct = ""
     while (dec > 0) {
         oct = dec % 8 + oct
         dec = Math.floor(dec / 8)
@@ -131,8 +129,8 @@ function decToOct(dec) {
 }
 
 function octToDec(oct) {
-    var dec = 0
-    for (var i = 0; i < oct.length; i++) {
+    let dec = 0
+    for (let i = 0; i < oct.length; i++) {
         dec += oct[i] * Math.pow(8, oct.length - i - 1)
     }
     return dec
@@ -141,35 +139,31 @@ function octToDec(oct) {
 function binToOct(bin) {
     //check if the input is a binary number
     if (bin.match(/^[0-1]+$/)) {
-        var dec = binToDec(bin)
-        var oct = decToOct(dec)
-        return oct
+        let dec = binToDec(bin)
+        return decToOct(dec)
     }else {
         alert("Please enter a valid binary number")
     }
 }
 
 function octToBin(oct) {
-    var dec = octToDec(oct)
-    var bin = decToBin(dec)
-    return bin
+    let dec = octToDec(oct)
+    return decToBin(dec)
 }
 
 function hexToOct(hex) {
-    var dec = hexToDec(hex)
-    var oct = decToOct(dec)
-    return oct
+    let dec = hexToDec(hex)
+    return decToOct(dec)
 }
 
 function octToHex(oct) {
-    var dec = octToDec(oct)
+    let dec = octToDec(oct)
     console.log(dec)
-    //if dec is between 16 and 21 dont replace with letters
+    //if dec is between 16 and 21 don't replace with letters
     if (dec >= 16 && dec <= 21) {
-        var hex = decToHex(dec)
-        return hex
+        return decToHex(dec)
     }else {
-        var hex = ""
+        let hex = ""
         while (dec > 0) {
             hex = dec % 16 + hex
             dec = Math.floor(dec / 16)
