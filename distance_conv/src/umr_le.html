@@ -22,7 +22,7 @@
             <input type="number" class="beveldn" value="5" id="inputID">
             <br>
             <label class="label">Von</label>
-            <select id="sourceUnitID" class="bevelup">
+            <select id="sourceUnitID" onchange="buttongray()" class="bevelup">
                 <option value="m">m</option>
                 <option value="pm">pm</option>
                 <option value="nm">nm</option>
@@ -37,7 +37,7 @@
             </select>
             <br>
             <label class="label">Nach</label>
-            <select id="targetUnitID" class="bevelup">
+            <select id="targetUnitID" onchange="buttongray()" class="bevelup">
                 <option value="m">m</option>
                 <option value="pm">pm</option>
                 <option value="nm">nm</option>
@@ -51,11 +51,10 @@
 
             </select>
         </div>
-        <button class="bevelup" onclick="selectState()">Konvertieren</button>
-        <div id="resultID">
-            noch nichts convertiert
-        </div>
+        <div id="resultID">ready to convert</div>
+        <button id="bevelupbutton" class="bevelupbutton" onclick="selectState()">Convert</button>
         <button class="bevelup" onclick="document.location='./index.html'">Zurück zum Menü</button>
+    </div>
     </div>
 </body>
 

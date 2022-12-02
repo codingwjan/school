@@ -22,7 +22,7 @@
             <input type="number" class="beveldn" value="5" id="inputID">
             <br>
             <label class="label">Von</label>
-            <select id="sourceUnitID" class="bevelup">
+            <select id="sourceUnitID" class="bevelup" onchange="buttongray()">
                 <option value="Byte" class="Byte">Byte</option>
                 <option value="Bit" class="Bit">Bit</option>
                 <option value="KB" class="KB">KB</option>
@@ -46,7 +46,7 @@
             </select>
             <br>
             <label class="label">Nach</label>
-            <select id="targetUnitID" class="bevelup">
+            <select onchange="buttongray()" id="targetUnitID" class="bevelup">
                 <option value="Byte" class="Byte">Byte</option>
                 <option value="Bit" class="Bit">Bit</option>
                 <option value="KB" class="KB">KB</option>
@@ -67,11 +67,10 @@
                 <option value="Tibit" class="Tibit">Tibit</option>
             </select>
         </div>
-        <button class="bevelup" onclick="convert()">Konvertieren</button>
-        <div id="resultID">
-            noch nichts convertiert
-        </div>
+        <div id="resultID">ready to convert</div>
+        <button id="bevelupbutton" class="bevelupbutton" onclick="selectState()">Convert</button>
         <button class="bevelup" onclick="document.location='./index.html'">Zurück zum Menü</button>
+    </div>
     </div>
 </body>
 

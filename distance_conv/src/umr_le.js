@@ -1,3 +1,29 @@
+function buttongray() {
+    let input = document.getElementById("sourceUnitID");
+    let out = document.getElementById("targetUnitID");
+    //if input is the same as output console log true
+    if (input.value == out.value) {
+        //change button color to gray and disable
+        document.getElementById("bevelupbutton").style.backgroundColor = "gray";
+        document.getElementById("bevelupbutton").disabled = true;
+
+        //disable cursor
+        document.getElementById("bevelupbutton").style.cursor = "not-allowed";
+
+        //cahnge resultId to "cant convert into the same unit"
+        document.getElementById("resultID").innerHTML = "wähle eine andere Einheit aus";
+
+        //if input is not the same as output console log false
+    } else {
+        //change text on bevelupbutton to "Convert"
+        document.getElementById("bevelupbutton").innerHTML = "Convert";
+        document.getElementById("bevelupbutton").disabled = false;
+        document.getElementById("bevelupbutton").style.backgroundColor = "#f9f871";
+        document.getElementById("bevelupbutton").style.cursor = "pointer";
+        document.getElementById("resultID").innerHTML = "ready to convert";
+    }
+}
+
 function selectState() {
     var endState = document.getElementById('targetUnitID').value
     var selState = document.getElementById('sourceUnitID').value
@@ -211,6 +237,6 @@ function selectState() {
           }
     }
 
-        outputID = ("result: " + outputID + " " + endState)
+        outputID = ("Ergebnis: " + outputID + " " + endState)
         document.getElementById('resultID').innerHTML = outputID
     }

@@ -13,35 +13,35 @@
 </head>
 
 <body>
-<div class="container bevelup">
-    <div class="title">
-        Einheitenumrechner
-    </div>
-    <div class="input-section">
-        <label class="label">Wert:</label>
-        <input type="number" class="beveldn" value="5" id="inputID">
-        <br>
-        <label class="label">Von</label>
-        <select id="sourceUnitID" class="bevelup">
-            <option value="bin">Binär</option>
-            <option value="hex">Hexadezimal</option>
-            <option value="oct">Oktal</option>
-            <option value="dec">Dezimal</option>
+<div class="page">
+    <div class="container bevelup">
+        <div class="title">
+            Zahlensysteme
+        </div>
+        <div class="input-section">
+            <label class="label">Wert:</label>
+            <input type="number" class="beveldn" value="5" id="inputID">
+            <br>
+            <label class="label">Von</label>
+            <select id="sourceUnitID" onchange="buttongray()" class="bevelup">
+                <option value="bin">Binär</option>
+                <option value="hex">Hexadezimal</option>
+                <option value="oct">Oktal</option>
+                <option value="dec">Dezimal</option>
 
-        </select>
-        <br>
-        <label class="label">Nach</label>
-        <select id="targetUnitID" class="bevelup">
-            <option value="bin">Binär</option>
-            <option value="hex">Hexadezimal</option>
-            <option value="oct">Oktal</option>
-            <option value="dec">Dezimal</option>
+            </select>
+            <br>
+            <label class="label">Nach</label>
+            <select id="targetUnitID" onchange="buttongray()" class="bevelup">
+                <option value="bin">Binär</option>
+                <option value="hex">Hexadezimal</option>
+                <option value="oct">Oktal</option>
+                <option value="dec">Dezimal</option>
 
-        </select>
-    </div>
-    <button class="bevelup" onclick="selectState()">Konvertieren</button>
-    <div id="resultID">
-        noch nichts convertiert
+            </select>
+        </div>
+        <div id="resultID">bereit ...</div>
+        <button id="bevelupbutton" class="bevelupbutton" onclick="selectState()">Convert</button>
     </div>
 </div>
 </body>

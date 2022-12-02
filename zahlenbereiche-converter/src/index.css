@@ -11,6 +11,36 @@ body{
 
 .bevelup{
     border-radius: 10px;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.1);
+    width: 170px;
+    height: 45px
+}
+
+.bevelupbutton {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.1);
+    width: 170px;
+    height: 45px;
+    background: #f9f871;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.page {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 .container{
     height: 500px;
@@ -29,11 +59,14 @@ body{
 }
 .title{
     font-family: 'Roboto',sans-serif;
-    font-size: 45px;
-    font-weight: lighter;
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 .input-section{
-    height: 150px;    }
+    height: 150px;
+    font-size: 30px;
+}
 
 @-webkit-keyframes scale-up-center {
     0% {
@@ -113,10 +146,10 @@ input,select{
 .beveldn{
     box-shadow: inset 2px 2px 2px #cbced1;
 }
-#outputID{
-    margin-top: 20px;
+#resultID{
+    margin-top: 60px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
 
 }

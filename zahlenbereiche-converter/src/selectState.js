@@ -4,32 +4,34 @@ function selectState() {
     let inputID = document.getElementById("inputID").value
 
     if (selState == "bin" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = binToDec(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToDec(inputID)
     }else if (selState == "bin" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = binToHex(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToHex(inputID)
     }else if (selState == "dec" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = decToBin(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToBin(inputID)
     }else if (selState == "dec" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = decToHex(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToHex(inputID)
     }else if (selState == "hex" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = hexToBin(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToBin(inputID)
     }else if (selState == "hex" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = hexToDec(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToDec(inputID)
     }else if (selState == "hex" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = hexToOct(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToOct(inputID)
     }else if (selState == "oct" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = octToHex(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToHex(inputID)
     }else if (selState == "oct" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = octToDec(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToDec(inputID)
     }else if (selState == "dec" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = decToOct(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToOct(inputID)
     }else if (selState == "bin" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = binToOct(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToOct(inputID)
     }else if (selState == "oct" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = octToBin(inputID)
+        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToBin(inputID)
     }else{
-        alert("Please select a different unit")
+        alert("andere einheit auswählen")
     }
+
+
 }
 
 function binToDec(bin) {
@@ -41,7 +43,7 @@ function binToDec(bin) {
         }
         return dec
     } else {
-        alert("Please enter a valid binary number")
+        alert("bitte eine binäre zahl eingeben")
     }
 }
 
