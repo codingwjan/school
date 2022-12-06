@@ -8,7 +8,7 @@ Eine klasse ist eine art Fertigstellung eines Bauplans! Der Bauplan (konstruktor
 Wie bilde ich einen while schleife?
 
 public class Main {
-	public static void main(String args[]) {
+	public static void chess_(String args[]) {
 		boolean b = true;
 		while(b =0 true) {
 			System.out.print('loop is running');
