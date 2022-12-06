@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/java-calc" isTestSource="false" packagePrefix="java_calculator" />
       <sourceFolder url="file://$MODULE_DIR$/klassen-objekte" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tank-infsyst" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/chess_generator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
