@@ -233,7 +233,7 @@ function selectState() {
     }
     else {
         {
-            document.getElementById('resultID').innerHTML = '/distance_conv/img/undraw_not_found_re_bh2e.svg'
+            alert("something went wrong")
           }
     }
 
