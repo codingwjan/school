@@ -19,26 +19,16 @@
             Zahlensysteme
         </div>
         <div class="input-section">
-            <label class="label">Wert:</label>
-            <input type="number" class="beveldn" value="5" id="inputID">
-            <br>
-            <label class="label">Von</label>
-            <select id="sourceUnitID" onchange="buttongray()" class="bevelup">
-                <option value="bin">Binär</option>
-                <option value="hex">Hexadezimal</option>
-                <option value="oct">Oktal</option>
-                <option value="dec">Dezimal</option>
-
-            </select>
-            <br>
-            <label class="label">Nach</label>
-            <select id="targetUnitID" onchange="buttongray()" class="bevelup">
-                <option value="bin">Binär</option>
-                <option value="hex">Hexadezimal</option>
-                <option value="oct">Oktal</option>
-                <option value="dec">Dezimal</option>
-
-            </select>
+            <div class="left_area">
+                <label class="label">Wert</label>
+                <label class="label">Von</label>
+                <label class="label">Nach</label>
+            </div>
+            <div class="right_area" >
+                <input type="number" class="beveldn" value="5" id="inputID" placeholder="wert eingeben">
+                <input type="number" class="beveldn" id="sourceUnitID" placeholder="1-32">
+                <input id="targetUnitID" class="beveldn" type="number" placeholder="1-32">
+            </div>
         </div>
         <div id="resultID">bereit ...</div>
         <button id="bevelupbutton" class="bevelupbutton" onclick="selectState()">Convert</button>

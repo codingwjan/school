@@ -66,6 +66,30 @@ body{
 .input-section{
     height: 150px;
     font-size: 30px;
+    display: flex;
+    /* shift to the left */
+    margin-left: -100px;
+
+}
+
+.left_area {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+
+.right_area {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 20px;
 }
 
 @-webkit-keyframes scale-up-center {
@@ -99,6 +123,10 @@ button{
     animation: scale-down-center 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
+.label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 .scale-up-center {
     -webkit-animation: scale-up-center 0.3s cubic-bezier(0.445, 0.050, 0.550, 0.950) both;
