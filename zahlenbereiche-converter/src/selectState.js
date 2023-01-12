@@ -1,181 +1,71 @@
-function selectState() {
-    let endState = document.getElementById('targetUnitID').value
-    let selState = document.getElementById('sourceUnitID').value
-    let inputID = document.getElementById("inputID").value
+function convert(input, sourceUnit, targetUnit) {
+    let result = "";
+    let num = input;
+    let temp = "";
+    while (num > 0) {
+        let remainder = num % sourceUnit;
+        temp = remainder.toString(sourceUnit) + temp;
+        num = Math.floor(num / sourceUnit);
+    }
+    let decimal = 0;
+    let power = 0;
+    for (let i = temp.length - 1; i >= 0; i--) {
+        let char = temp.charAt(i);
+        let digit = char.charCodeAt(0) <= 57 ? char - '0' : char.toUpperCase().charCodeAt(0) - 55;
+        decimal += digit * Math.pow(sourceUnit, power);
+        power++;
+    }
+    while (decimal > 0) {
+        let remainder = decimal % targetUnit;
+        result = (remainder > 9 ? String.fromCharCode(remainder + 55) : remainder) + result;
+        decimal = Math.floor(decimal / targetUnit);
+    }
+    return result;
+}
 
-    if (selState == "bin" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToDec(inputID)
-    }else if (selState == "bin" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToHex(inputID)
-    }else if (selState == "dec" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToBin(inputID)
-    }else if (selState == "dec" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToHex(inputID)
-    }else if (selState == "hex" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToBin(inputID)
-    }else if (selState == "hex" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToDec(inputID)
-    }else if (selState == "hex" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + hexToOct(inputID)
-    }else if (selState == "oct" && endState == "hex") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToHex(inputID)
-    }else if (selState == "oct" && endState == "dec") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToDec(inputID)
-    }else if (selState == "dec" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + decToOct(inputID)
-    }else if (selState == "bin" && endState == "oct") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + binToOct(inputID)
-    }else if (selState == "oct" && endState == "bin") {
-        document.getElementById("resultID").innerHTML = "ergebnis ist: " + octToBin(inputID)
+
+function buttonCheck(){
+    var sourceUnit = document.getElementById("selectID").value;
+    var targetUnit = document.getElementById("selectID2").value;
+    console.log(sourceUnit)
+    console.log(targetUnit)
+    if (sourceUnit == targetUnit){
+        document.getElementById("convertButton").disabled = true;
+        document.getElementById("convertButton").style.backgroundColor = "gray";
+        document.getElementById("convertButton").style.cursor = "not-allowed";
+        document.getElementById("resultID").innerHTML = "Please select different values";
     }else{
-        alert("andere einheit auswählen")
+        document.getElementById("convertButton").disabled = false;
+        document.getElementById("convertButton").style.backgroundColor = "#f9f871";
+        document.getElementById("convertButton").style.cursor = "pointer";
+        document.getElementById("resultID").innerHTML = "ready to convert ...";
     }
-
-
 }
 
-function binToDec(bin) {
-    //check if the input is a binary number
-    if (bin.match(/^[0-1]+$/)) {
-        let dec = 0
-        for (let i = 0; i < bin.length; i++) {
-            dec += bin[i] * Math.pow(2, bin.length - i - 1)
-        }
-        return dec
+function validateInput(input) {
+    if (input == "") {
+        document.getElementById("resultID").innerHTML = "Please enter a value";
+        return false;
+    } else if (isNaN(input)) {
+        document.getElementById("resultID").innerHTML = "Please enter a number";
+        return false;
     } else {
-        alert("bitte eine binäre zahl eingeben")
+        return true;
     }
+    return isValid;
 }
 
-function decToBin(dec) {
-    let bin = ""
-    while (dec > 0) {
-        bin = dec % 2 + bin
-        dec = Math.floor(dec / 2)
+function selectState() {
+    let input = document.getElementById("inputID").value;
+    console.log(input);
+    if(!validateInput(input)){
+        document.getElementById("resultID").innerHTML = "Invalid input";
+        return;
     }
-    return bin
-}
-
-function decToHex(dec) {
-    //if dec is between 16 and 21 don't replace with letters
-    if (dec >= 16 && dec <= 21) {
-        let hex = ""
-        while (dec > 0) {
-            hex = dec % 16 + hex
-            dec = Math.floor(dec / 16)
-        }
-        return hex
-    }else {
-        let hex = ""
-        while (dec > 0) {
-            hex = dec % 16 + hex
-            dec = Math.floor(dec / 16)
-            hex = hex.replace(/10/g, "A")
-            hex = hex.replace(/11/g, "B")
-            hex = hex.replace(/12/g, "C")
-            hex = hex.replace(/13/g, "D")
-            hex = hex.replace(/14/g, "E")
-            hex = hex.replace(/15/g, "F")
-        }
-        return hex
-    }
-
-}
-
-function hexToDec(hex) {
-    let dec = 0
-    for (let i = 0; i < hex.length; i++) {
-        dec += hex[i] * Math.pow(16, hex.length - i - 1)
-    }
-    return dec
-}
-
-function binToHex(bin) {
-    //check if the input is a binary number
-    if (bin.match(/^[0-1]+$/)) {
-        let dec = binToDec(bin)
-        //if dec is between 16 and 21 don't replace with letters
-        if (dec >= 16 && dec <= 21) {
-            return decToHex(dec)
-        }else {
-            let hex = ""
-            while (dec > 0) {
-                hex = dec % 16 + hex
-                dec = Math.floor(dec / 16)
-                hex = hex.replace(/10/g, "A")
-                hex = hex.replace(/11/g, "B")
-                hex = hex.replace(/12/g, "C")
-                hex = hex.replace(/13/g, "D")
-                hex = hex.replace(/14/g, "E")
-                hex = hex.replace(/15/g, "F")
-            }
-            return hex
-        }
-    }else {
-        alert("Please enter a valid binary number")
-    }
-}
-
-function hexToBin(hex) {
-    let dec = hexToDec(hex)
-    return decToBin(dec)
-}
-
-function decToOct(dec) {
-    let oct = ""
-    while (dec > 0) {
-        oct = dec % 8 + oct
-        dec = Math.floor(dec / 8)
-    }
-    return oct
-}
-
-function octToDec(oct) {
-    let dec = 0
-    for (let i = 0; i < oct.length; i++) {
-        dec += oct[i] * Math.pow(8, oct.length - i - 1)
-    }
-    return dec
-}
-
-function binToOct(bin) {
-    //check if the input is a binary number
-    if (bin.match(/^[0-1]+$/)) {
-        let dec = binToDec(bin)
-        return decToOct(dec)
-    }else {
-        alert("Please enter a valid binary number")
-    }
-}
-
-function octToBin(oct) {
-    let dec = octToDec(oct)
-    return decToBin(dec)
-}
-
-function hexToOct(hex) {
-    let dec = hexToDec(hex)
-    return decToOct(dec)
-}
-
-function octToHex(oct) {
-    let dec = octToDec(oct)
-    console.log(dec)
-    //if dec is between 16 and 21 don't replace with letters
-    if (dec >= 16 && dec <= 21) {
-        return decToHex(dec)
-    }else {
-        let hex = ""
-        while (dec > 0) {
-            hex = dec % 16 + hex
-            dec = Math.floor(dec / 16)
-            hex = hex.replace(/10/g, "A")
-            hex = hex.replace(/11/g, "B")
-            hex = hex.replace(/12/g, "C")
-            hex = hex.replace(/13/g, "D")
-            hex = hex.replace(/14/g, "E")
-            hex = hex.replace(/15/g, "F")
-        }
-        return hex
-    }
+    let sourceUnit = document.getElementById("selectID").value;
+    console.log(sourceUnit);
+    let targetUnit = document.getElementById("selectID2").value;
+    console.log(targetUnit);
+    let result = convert(input, sourceUnit, targetUnit);
+    document.getElementById("resultID").innerHTML = result;
 }
