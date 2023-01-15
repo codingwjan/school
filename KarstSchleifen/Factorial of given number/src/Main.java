@@ -14,5 +14,6 @@ public class Main {
         int targetValue = input.nextInt();
         int result = factorial(targetValue);
         System.out.println(result);
+        System.out.println("sheeesh");
     }
 }

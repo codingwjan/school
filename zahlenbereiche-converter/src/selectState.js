@@ -1,16 +1,9 @@
 function convert(input, sourceUnit, targetUnit) {
     let result = "";
-    let num = input;
-    let temp = "";
-    while (num > 0) {
-        let remainder = num % sourceUnit;
-        temp = remainder.toString(sourceUnit) + temp;
-        num = Math.floor(num / sourceUnit);
-    }
     let decimal = 0;
     let power = 0;
-    for (let i = temp.length - 1; i >= 0; i--) {
-        let char = temp.charAt(i);
+    for (let i = input.length - 1; i >= 0; i--) {
+        let char = input.charAt(i);
         let digit = char.charCodeAt(0) <= 57 ? char - '0' : char.toUpperCase().charCodeAt(0) - 55;
         decimal += digit * Math.pow(sourceUnit, power);
         power++;
@@ -22,6 +15,7 @@ function convert(input, sourceUnit, targetUnit) {
     }
     return result;
 }
+
 
 
 function buttonCheck(){
@@ -43,7 +37,7 @@ function buttonCheck(){
 }
 
 function validateInput(input) {
-    if (input == "") {
+    if (isNaN(input)) {
         document.getElementById("resultID").innerHTML = "Please enter a value";
         return false;
     } else if (isNaN(input)) {
@@ -52,7 +46,6 @@ function validateInput(input) {
     } else {
         return true;
     }
-    return isValid;
 }
 
 function selectState() {
@@ -66,6 +59,5 @@ function selectState() {
     console.log(sourceUnit);
     let targetUnit = document.getElementById("selectID2").value;
     console.log(targetUnit);
-    let result = convert(input, sourceUnit, targetUnit);
-    document.getElementById("resultID").innerHTML = result;
+    document.getElementById("resultID").innerHTML = convert(input, sourceUnit, targetUnit);
 }
