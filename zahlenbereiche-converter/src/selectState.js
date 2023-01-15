@@ -23,12 +23,29 @@ function buttonCheck(){
     var targetUnit = document.getElementById("selectID2").value;
     console.log(sourceUnit)
     console.log(targetUnit)
-    if (sourceUnit == targetUnit){
+    if (sourceUnit !== '0') {
+        document.getElementById("selectID").style.color = 'black';
+    } else if (sourceUnit === '0') {
+        document.getElementById("selectID").style.color = 'gray';
+    }
+
+    if (targetUnit !== '0') {
+        document.getElementById("selectID2").style.color = 'black';
+    } else if (targetUnit === '0') {
+        document.getElementById("selectID2").style.color = 'gray';
+    }
+
+    if (sourceUnit == '0' || targetUnit == '0') {
+        document.getElementById("convertButton").disabled = true;
+        document.getElementById("convertButton").style.backgroundColor = "gray";
+        document.getElementById("convertButton").style.cursor = "not-allowed";
+        document.getElementById("resultID").innerHTML = "Please select a value";
+    } else if (sourceUnit == targetUnit) {
         document.getElementById("convertButton").disabled = true;
         document.getElementById("convertButton").style.backgroundColor = "gray";
         document.getElementById("convertButton").style.cursor = "not-allowed";
         document.getElementById("resultID").innerHTML = "Please select different values";
-    }else{
+    } else {
         document.getElementById("convertButton").disabled = false;
         document.getElementById("convertButton").style.backgroundColor = "#f9f871";
         document.getElementById("convertButton").style.cursor = "pointer";
@@ -49,6 +66,7 @@ function validateInput(input) {
 }
 
 function selectState() {
+    console.log("something")
     let input = document.getElementById("inputID").value;
     console.log(input);
     if(!validateInput(input)){

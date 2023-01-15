@@ -25,8 +25,9 @@
                 <label class="label">Nach</label>
             </div>
             <div class="right_area" >
-                <input type="number" class="beveldn" value="5" id="inputID" placeholder="wert eingeben">
-                <select name="select" id="selectID" onchange="buttonCheck()">
+                <input type="number" class="beveldn" value="5" id="inputID" placeholder="Wert eingeben">
+                <select name="select" id="selectID" onchange="buttonCheck()" class="select">
+                    <option value="0">Basis wählen</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -64,7 +65,8 @@
                     <option value="36">36</option>
 
                 </select>
-                <select name="select" id="selectID2" onchange="buttonCheck()">
+                <select name="select" id="selectID2" onchange="buttonCheck()" class="select">
+                    <option value="0">Ziel wählen</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -104,7 +106,7 @@
                 </select>
             </div>
         </div>
-        <div id="resultID">ready to convert ...</div>
+        <div id="resultID">Please select a value</div>
         <button id="convertButton" class="bevelupbutton" onclick="selectState()">Convert</button>
     </div>
 </div>
