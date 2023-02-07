@@ -4,7 +4,14 @@ function convert(input, sourceUnit, targetUnit) {
     let power = 0;
     for (let i = input.length - 1; i >= 0; i--) {
         let char = input.charAt(i);
-        let digit = char.charCodeAt(0) <= 57 ? char - '0' : char.toUpperCase().charCodeAt(0) - 55;
+        let digit;
+        if (char >= '0' && char <= '9') {
+            digit = char - '0';
+        } else if (char >= 'A' && char <= 'F') {
+            digit = char.charCodeAt(0) - 55;
+        } else {
+            return "Invalid input: Please use only numbers and letters A-F for base 16 input.";
+        }
         decimal += digit * Math.pow(sourceUnit, power);
         power++;
     }
@@ -21,6 +28,7 @@ function convert(input, sourceUnit, targetUnit) {
 function buttonCheck(){
     var sourceUnit = document.getElementById("selectID").value;
     var targetUnit = document.getElementById("selectID2").value;
+    var input = document.getElementById("inputID").value.toUpperCase();
     console.log(sourceUnit)
     console.log(targetUnit)
     if (sourceUnit !== '0') {
@@ -35,7 +43,17 @@ function buttonCheck(){
         document.getElementById("selectID2").style.color = 'gray';
     }
 
-    if (sourceUnit == '0' || targetUnit == '0') {
+    //if the sourceunit is not 16, and the input is a letter, then it is invalid
+    if (sourceUnit !== '16' && input.toLowerCase().match(/[a-f]/i)) {
+        document.getElementById("inputID").style.color = 'red';
+        document.getElementById("convertButton").disabled = true;
+        document.getElementById("convertButton").style.backgroundColor = "gray";
+        document.getElementById("convertButton").style.cursor = "not-allowed";
+        document.getElementById("resultID").innerHTML = "Please select a value";
+
+    }
+
+    else if (sourceUnit == '0' || targetUnit == '0') {
         document.getElementById("convertButton").disabled = true;
         document.getElementById("convertButton").style.backgroundColor = "gray";
         document.getElementById("convertButton").style.cursor = "not-allowed";
@@ -45,29 +63,41 @@ function buttonCheck(){
         document.getElementById("convertButton").style.backgroundColor = "gray";
         document.getElementById("convertButton").style.cursor = "not-allowed";
         document.getElementById("resultID").innerHTML = "Please select different values";
+    } else if(!validateInput(input, sourceUnit)) {
+        document.getElementById("convertButton").disabled = true;
+        document.getElementById("convertButton").style.backgroundColor = "gray";
+        document.getElementById("convertButton").style.cursor = "not-allowed";
     } else {
         document.getElementById("convertButton").disabled = false;
         document.getElementById("convertButton").style.backgroundColor = "#f9f871";
         document.getElementById("convertButton").style.cursor = "pointer";
         document.getElementById("resultID").innerHTML = "ready to convert ...";
+        document.getElementById("inputID").style.color = 'black';
     }
 }
 
+
+
 function validateInput(input) {
-    if (isNaN(input)) {
-        document.getElementById("resultID").innerHTML = "Please enter a value";
-        return false;
-    } else if (isNaN(input)) {
-        document.getElementById("resultID").innerHTML = "Please enter a number";
+    let valid = true;
+    for (let i = 0; i < input.length; i++) {
+        let char = input.charAt(i);
+        if (!(char >= '0' && char <= '9') && !(char >= 'A' && char <= 'F')) {
+            valid = false;
+            break;
+        }
+    }
+    if (!valid) {
+        document.getElementById("resultID").innerHTML = "Invalid input: Please use only numbers and letters A-F for base 16 input.";
         return false;
     } else {
         return true;
     }
 }
 
+
 function selectState() {
-    console.log("something")
-    let input = document.getElementById("inputID").value;
+    let input = document.getElementById("inputID").value.toUpperCase();
     console.log(input);
     if(!validateInput(input)){
         document.getElementById("resultID").innerHTML = "Invalid input";
