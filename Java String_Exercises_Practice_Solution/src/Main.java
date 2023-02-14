@@ -1,10 +1,13 @@
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
+
+import static java.rmi.dgc.VMID.isUnique;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(getCanonical());
+        System.out.println(removeNonDublicates());
     }
 
     //task1
@@ -167,4 +170,56 @@ public class Main {
     }
 
     //task 37
+    public static String longestSubstring() {
+        String sentance = "pickoutthelongestsubstring";
+        String temp = "";
+        int n = sentance.length();
+        int substringlength = 0;
+
+        Set<Character> set = new HashSet<>();
+
+        for (int i = 0; i < n; i++) {
+            char c = sentance.charAt(i);
+            if (!set.contains(c)) {
+                set.add(c);
+                temp += c;
+                substringlength = Math.max(substringlength, temp.length());
+            } else {
+                set.clear();
+                temp = "";
+            }
+        }
+        System.out.println(substringlength);
+        return temp;
+    }
+
+    //task 38
+    public static String removeDublicates() {
+        String sentance = "W3resource";
+        String temp = "";
+        for (int i = 0; i < sentance.length(); i++) {
+            char c = sentance.charAt(i);
+            if (temp.indexOf(c) == -1) {
+                temp += c;
+            }
+        }
+        return temp;
+    }
+
+    //task 39
+    public static String removeNonDublicates() {
+        String sentance = "gibblegabbler";
+        String temp = "";
+        for (int i = 0; i < sentance.length(); i++) {
+            char c = sentance.charAt(i);
+            if (temp.indexOf(c) == -1) {
+                temp += c;
+            } else {
+                temp = temp.replace(String.valueOf(c), "");
+            }
+        }
+        return temp.charAt(0) + "";
+    }
+
+
 }
