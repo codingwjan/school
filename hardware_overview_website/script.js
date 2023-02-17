@@ -106,7 +106,8 @@ const componentData = [
             img: 'https://images.unsplash.com/photo-1633933304443-bd5715bacb1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
             short: "Computer Headset",
             long: "The headset is used for inputting data and instructions. It is the brain of the computer."
-        }
+        },
+    
     ];
     
 
@@ -136,12 +137,18 @@ componentData.forEach(item => {
 // when you hover over a component, display the long description and hide the short description
 const hardwareComponents = document.querySelectorAll('.hardwareComponent')
 hardwareComponents.forEach(component => {
-    component.addEventListener('mouseover', () => {
+    /*make the text change when you hover over the component*/
+        component.addEventListener('mouseover', () => {
         component.querySelector('.subtitle').style.display = 'none'
         component.querySelector('.long').style.display = 'block'
-    })
-    component.addEventListener('mouseout', () => {
+        })
+        component.addEventListener('mouseout', () => {
         component.querySelector('.subtitle').style.display = 'block'
         component.querySelector('.long').style.display = 'none'
-    })
+        })
+
+    /*make the component clickable and open a new tab with the wikipedia page of the component*/
+        component.addEventListener('click', () => {
+        window.open(`https://en.wikipedia.org/wiki/${component.querySelector('.subtitle').innerText}`, '_blank')
+        })
 })

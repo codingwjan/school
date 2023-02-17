@@ -9,13 +9,16 @@
 body {
     padding: 30px;
     font-family: 'Poppins', sans-serif;
-    /*background almost black but more gray blue*/
-    background-color: #1c1c1c;
     display: flex;
     justify-content: start;
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
+    
+    /*background image from src named background.jpg*/
+    background-image: url(../src/background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .topBar {
@@ -25,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #1c1c1c;
+    background: transparent;
     margin-bottom: 20px;
 } 
 
