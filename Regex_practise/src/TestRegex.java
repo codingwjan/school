@@ -11,7 +11,7 @@ public class TestRegex {
 				System.out.println("Testen beendet");
 				running = false;
 			}
-			System.out.println(Checker.checkNameValidity(tmp));
+			System.out.println(Checker.checkProductIdValidity(tmp));
 		}
 
 	}
