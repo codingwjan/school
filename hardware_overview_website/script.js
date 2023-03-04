@@ -187,7 +187,6 @@ componentData.forEach(item => {
     });
 
 
-
     //add the component to the container
     container.appendChild(hardwareComponent);
 })
