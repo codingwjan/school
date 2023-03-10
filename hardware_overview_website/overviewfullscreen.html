@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="./style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>Hardware overview</title>
+</head>
+<script>window.onload = function () {
+    getYoutubeDetails();
+}</script>
+<body>
+<div class="detailtopBar">
+    <div id="componenttitle" class="detailTitle">
+    </div>
+    <div id="componentdescription" class="descriptionTop">
+        Detailed page
+    </div>
+    <div class="detailBody">
+        <img id="componentImage" class="detailImage"/>
+        <div class="titleLeft">
+            <div id="componenttitle2" class="detailTitle">
+            </div>
+            <div id="descriptionTop1" class="descriptionTop">
+                Central Processing Uni
+            </div>
+            <div id="descriptionTop2" class="descriptionTop">
+                The CPU is used for processing data and instructions. It is the brain of the computer.
+            </div>
+            <div class="flex">
+                <div class="buttonGoBack" onclick="goHome()">Go Home</div>
+                <div class="buttonGoYoutube" onclick="goWatchYoutube()">Watch on YouTube</div>
+            </div>
+        </div>
+    </div>
+    <div class="lineBreak"/>
+    <div class="flex">
+        <div class="youtubeDetails">
+            <div class="detailTitle">Youtube Video:</div>
+            <div class="detailYoutubeTitle" id="title"></div>
+            <div class="detailYoutubeDescriptionBold" id="language"></div>
+            <div class="detailYoutubeDescription" id="description"></div>
+        </div>
+        <div class="youtubeDetails">
+            <div class="detailTitle">Thumbnail:</div>
+            <img class="detailYoutubeThumbnail" height="360px" id="thumbnail"
+                 src="https://i.ytimg.com/vi/5u6GWM5XGdg/hqdefault.jpg" width="640px"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

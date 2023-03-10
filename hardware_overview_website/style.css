@@ -48,6 +48,19 @@ body {
     margin-top: 10px;
 }
 
+
+.detailtopBar {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
 .titleTop {
     font-size: 40px;
     font-weight: 600;
@@ -59,11 +72,141 @@ body {
     flex-direction: column;
 }
 
+.detailTitle {
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.detailYoutubeTitle {
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.detailYoutubeDescription {
+    font-size: 20px;
+    font-weight: 400;
+    width: 50%;
+    color: white;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.detailYoutubeDescriptionBold {
+    font-size: 20px;
+    font-weight: 600;
+    width: 50%;
+    color: white;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+
+.lineBreak {
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.detailImage {
+    width: 40%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.detailBody {
+    display: flex;
+}
+
+.titleLeft {
+    margin-left: 50px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
 .descriptionTop {
     font-size: 20px;
     font-weight: 400;
     color: white;
     margin-bottom: 20px;
+}
+
+.buttonGoBack {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: dodgerblue;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+}
+
+.buttonGoYoutube {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: red;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    margin-left: 20px;
+}
+
+.buttonGoYoutube:hover {
+    background: #000000;
+    color: white;
+}
+
+.buttonGoBack:hover {
+    background: #000000;
+    color: white;
+}
+
+.youtubeDetails {
+    width: 40%;
+    height: 100px;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 50px;
 }
 
 .searchBar {
@@ -105,6 +248,7 @@ body {
     margin: 25px;
     /*slightly background glow blurry*/
     box-shadow: 0 0 10px #000000;
+    cursor: pointer;
 }
 
 .snip1573 {
