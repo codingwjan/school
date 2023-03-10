@@ -107,8 +107,8 @@ const componentData = [
         img: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
         short: "Computer Speakers",
         long: "The speakers are used for outputting sound. They are the voice of the computer.",
-        url: "https://www.youtube.com/watch?v=I0aVLp4tt4s",
-        id: "I0aVLp4tt4s"
+        url: "https://www.youtube.com/watch?v=jhg90zsjqt4",
+        id: "jhg90zsjqt4"
     },
 
 ];

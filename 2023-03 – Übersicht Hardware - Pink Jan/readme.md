@@ -20,17 +20,17 @@ To run the application, you can use the `npx serve` command to serve the applica
    
 4. Get your own `YouTube Data API v3 API key from [Google Cloud](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&project=independent-bay-340717).
 
-5. Insert your own API key. The API used in this project is YouTube v3 and the key needs to be placed in line **181** of the `script.js` file.
+5. Insert your own API key. The API used in this project is YouTube v3 and the key needs to be placed in line **181** of the `index.js` file.
 
 
 6. Serve the application on a local web server using `npx serve`.
 
 
-7. Open the application in your web browser by navigating to [http://localhost:5000](http://localhost:5000).
+7. Open the application in your web browser by navigating to [http://localhost:3000](http://localhost:3000).
 
 ## Note
 
-This project is free to use for everyone. However, please note that the Google API requires an API key to access the data. You will need to sign up for an API key and insert it in line 181 of the `script.js` file.
+This project is free to use for everyone. However, please note that the Google API requires an API key to access the data. You will need to sign up for an API key and insert it in line 181 of the `index.js` file.
 
 ## Author
 
