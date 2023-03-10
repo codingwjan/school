@@ -22,4 +22,20 @@
 </div>
 <div class="container" id="container"></div>
 </body>
+<footer style="text-align: center;">
+    <div class="footercontent">
+        <p>
+            Page loaded in <span id="load-time"></span>
+        </p>
+        <p>Alle Rechte der Bilder sowie den verlinkten Videos gehen an dessen Autoren.</p>
+    </div>
+
+</footer>
+<script>
+    const startTime = performance.now();
+    window.addEventListener("DOMContentLoaded", function () {
+        const loadTime = performance.now() - startTime;
+        document.getElementById("load-time").innerHTML = loadTime.toFixed(2) + " ms";
+    });
+</script>
 </html>

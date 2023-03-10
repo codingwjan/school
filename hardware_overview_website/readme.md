@@ -17,14 +17,16 @@ To run the application, you can use the `npx serve` command to serve the applica
 3. Install the dependencies.
 `npm install serve`
 
+   
+4. Get your own `YouTube Data API v3 API key from [Google Cloud](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=search&referrer=search&project=independent-bay-340717).
 
-4. Insert your own API key. The API used in this project is YouTube v3 and the key needs to be placed in line 181 of the `main.js` file.
+5. Insert your own API key. The API used in this project is YouTube v3 and the key needs to be placed in line **181** of the `main.js` file.
 
 
-5. Serve the application on a local web server using `npx serve`.
+6. Serve the application on a local web server using `npx serve`.
 
 
-6. Open the application in your web browser by navigating to [http://localhost:5000](http://localhost:5000).
+7. Open the application in your web browser by navigating to [http://localhost:5000](http://localhost:5000).
 
 ## Note
 
