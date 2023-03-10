@@ -11,7 +11,7 @@ To run the application, you can use the `npx serve` command to serve the applica
 
 
 2. Navigate to the project directory.
-`cd hardware_overview_website`
+`cd 2023-03\ –\ Übersicht\ Hardware\ -\ Pink\ Jan`
 
 
 3. Install the dependencies.
