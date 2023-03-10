@@ -178,7 +178,7 @@ function getYoutubeDetails() {
     document.getElementById('componentImage').src = componentData[localStorage.getItem("index")].img;
 
 
-    const apiKey = 'AIzaSyCsty91xWC_u_amt8Sw-Fz9XAt825YQr7g'
+    const apiKey = ''
     const videoId = componentData[localStorage.getItem("index")].id;
 
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
@@ -208,12 +208,13 @@ function getYoutubeDetails() {
             }
 
             //get language code
-            const languageCode = data.items[0].snippet.defaultLanguage;
+            const languageCode = data.items[0].snippet.defaultAudioLanguage;
             //get full language name
             const language = languages[languageCode];
 
             document.getElementById('title').innerHTML = videoTitle;
             //set language with the language code
+            document.getElementById("channelname").innerHTML = "Channel: " + data.items[0].snippet.channelTitle;
             document.getElementById('language').innerHTML = "Language: " + language;
             document.getElementById('description').innerText = "Description: \n" + videoDescription;
             //get the video thumbnail and set it as img src

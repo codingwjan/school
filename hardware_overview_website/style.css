@@ -122,7 +122,9 @@ body {
 
 .detailImage {
     width: 40%;
-    height: auto;
+    height: 340px;
+    /*make it not corpped*/
+    object-fit: cover;
     display: flex;
     justify-content: center;
     align-items: center;
