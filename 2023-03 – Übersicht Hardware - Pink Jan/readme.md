@@ -23,7 +23,7 @@ To run the application, you can use the `npx serve` command to serve the applica
 5. Insert your own API key. The API used in this project is YouTube v3 and the key needs to be placed in line **181** of the `index.js` file.
 
 
-6. Serve the application on a local web server using ```npx serve`.
+6. Serve the application on a local web server using ```npx serve```.
 
 
 7. Open the application in your web browser by navigating to [http://localhost:3000](http://localhost:3000).
