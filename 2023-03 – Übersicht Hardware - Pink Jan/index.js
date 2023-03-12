@@ -146,7 +146,7 @@ function clickOntile() {
     index = index.toString()
     localStorage.setItem("index", index)
 
-    window.location.href = `/overviewfullscreen.html`
+    window.location.href = `overviewfullscreen.html`
 }
 
 function search() {
@@ -228,7 +228,7 @@ function getYoutubeDetails() {
 }
 
 function goHome() {
-    window.location.href = `/index.html`
+    window.location.href = `index.html`
 }
 
 function goWatchYoutube() {
