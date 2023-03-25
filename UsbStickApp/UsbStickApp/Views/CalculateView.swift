@@ -22,6 +22,7 @@ struct CalculateView: View {
 
     
     var body: some View {
+        ScrollView {
             VStack {
                 VStack {
                     HStack {
@@ -32,13 +33,13 @@ struct CalculateView: View {
                         Button(action: {
                             clearInputs()
                         }) {
-                            Image(systemName: "trash.circle.fill") // Replace "Trash" with SF Symbol name
+                            Image(systemName: "trash.circle.fill")
                                 .font(.system(size: 35))
                                 .foregroundColor(.red)
                         }
                     }
                     
-                    InputBox(name: $Name, size: $Size, speed: $Speed, selected: $Selected)
+                    InputBox(name: $Name, size: $Size, speed: $Speed)
                 }
                 
                 VStack {
@@ -51,10 +52,11 @@ struct CalculateView: View {
                     
                     OutputBox(name: $Name, size: $Size, speed: $Speed)
                 }
-            .padding(.top, 30.0)
-            Spacer()
+                .padding(.top, 30.0)
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

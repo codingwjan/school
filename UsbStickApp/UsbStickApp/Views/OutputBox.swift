@@ -34,13 +34,11 @@ struct OutputBox: View {
         hours = minutes / 60
         days = hours / 24
         
-        //round to 2 decimal places
         seconds = (seconds * 100).rounded() / 100
         minutes = (minutes * 100).rounded() / 100
         hours = (hours * 100).rounded() / 100
         days = (days * 100).rounded() / 100
         
-        //only show seconds minutes and hours if they are a number and not 0 or infinity
         if seconds.isNaN || seconds.isInfinite || seconds == 0 {
             seconds = 0.0
         }
@@ -58,7 +56,7 @@ struct OutputBox: View {
     
     var body: some View {
         VStack {
-            if (name == "" || hours < 1 || minutes < 1 || seconds < 1) {
+            if (name == "" && hours < 1 && minutes < 1 && seconds < 1) {
                 Text("Please enter some values")
                     .bold()
                     .padding()
@@ -70,36 +68,39 @@ struct OutputBox: View {
                         Spacer()
                     }
                     .padding()
-                    Divider()
                 }
-                if hours >= 1 {
+                if days >= 1 {
+                    Divider()
                     HStack {
                         Text("Days: " + String(days))
                             .bold()
                         Spacer()
                     }
                     .padding()
-                    Divider()
+                    
                 }
                 if hours >= 1 {
+                    Divider()
                     HStack {
                         Text("Hours: " + String(hours))
                             .bold()
                         Spacer()
                     }
                     .padding()
-                    Divider()
+                    
                 }
                 if minutes >= 1 {
+                    Divider()
                     HStack {
                         Text("Minutes: " + String(minutes))
                             .bold()
                         Spacer()
                     }
                     .padding()
-                    Divider()
+                    
                 }
                 if seconds >= 1 {
+                    Divider()
                     HStack {
                         Text("Seconds: " + String(seconds))
                             .bold()
