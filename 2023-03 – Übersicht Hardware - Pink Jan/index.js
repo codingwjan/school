@@ -118,7 +118,7 @@ const componentData = [
 componentData.forEach(item => {
     let short = item.short
     let container = document.getElementById('container')
-    // create class hardwreComponent with class overlay, title and subtitle inside overlay  
+    // create class hardwreComponent with class overlay, title and subtitle inside overlay
     const hardwareComponent = document.createElement('div')
     hardwareComponent.classList.add('hardwareComponent')
     hardwareComponent.innerHTML = `
@@ -178,7 +178,7 @@ function getYoutubeDetails() {
     document.getElementById('componentImage').src = componentData[localStorage.getItem("index")].img;
 
 
-    const apiKey = ''
+    const apiKey = 'AIzaSyCxnKmFTv9fgKMt8ik0wExJf_AJZerC7g0'
     const videoId = componentData[localStorage.getItem("index")].id;
 
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
