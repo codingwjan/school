@@ -1,11 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        Mitarbeiter mitarbeiter = new Mitarbeiter();
-        mitarbeiter.setVorname("Max");
-        mitarbeiter.setNachname("Mustermann");
-        mitarbeiter.getArbeitsvertrag().setGehalt(1000.0);
-        mitarbeiter.getArbeitsvertrag().setTaetigkeit("Softwareentwickler");
+        String vorname = "Samuel";
+        String nachname = "OpenAI";
+        double gehalt = 69420.0;
+        String taetigkeit = "CEO of OpenAI";
 
-        System.out.println(mitarbeiter.getVorname() + " " + mitarbeiter.getNachname() + " verdient " + mitarbeiter.getArbeitsvertrag().getGehalt() + " Euro als " + mitarbeiter.getArbeitsvertrag().getTaetigkeit());
+        Arbeitsvertrag arbeitsvertrag = new Arbeitsvertrag(gehalt, taetigkeit);
+        Mitarbeiter mitarbeiter = new Mitarbeiter(arbeitsvertrag, vorname, nachname);
+        mitarbeiter.setVorname(vorname);
+        mitarbeiter.setNachname(nachname);
+        mitarbeiter.getArbeitsvertrag().setGehalt(gehalt);
+        mitarbeiter.getArbeitsvertrag().setTaetigkeit(taetigkeit);
+
+        System.out.println(mitarbeiter.getVorname() + " " + mitarbeiter.getNachname() + " earns " + mitarbeiter.getArbeitsvertrag().getGehalt() + " Euro als " + mitarbeiter.getArbeitsvertrag().getTaetigkeit());
     }
 }

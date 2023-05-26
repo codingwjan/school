@@ -1,4 +1,9 @@
 public class Arbeitsvertrag {
+    public Arbeitsvertrag(double gehalt, String taetigkeit) {
+        this.gehalt = gehalt;
+        this.taetigkeit = taetigkeit;
+    }
+
     double gehalt;
     String taetigkeit;
 

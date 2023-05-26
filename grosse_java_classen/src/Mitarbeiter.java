@@ -1,9 +1,13 @@
 public class Mitarbeiter {
-    Arbeitsvertrag arbeitsvertrag = new Arbeitsvertrag();
-
+    Arbeitsvertrag arbeitsvertrag;
     String vorname;
     String nachname;
 
+    public Mitarbeiter(Arbeitsvertrag arbeitsvertrag, String vorname, String nachname) {
+        this.arbeitsvertrag = arbeitsvertrag;
+        this.vorname = vorname;
+        this.nachname = nachname;
+    }
 
     public Arbeitsvertrag getArbeitsvertrag() {
         return arbeitsvertrag;
