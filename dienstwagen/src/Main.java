@@ -13,13 +13,11 @@ public class Main {
         auto3.setSeinFahrer(mitarbeiter3);
 
         System.out.println("Mitarbeiter fährt mit Dienstwagen");
-        System.out.println("- - - - - - - - -");
+        System.out.println("- - -");
         System.out.println(mitarbeiter1);
         System.out.println(mitarbeiter2);
         System.out.println(mitarbeiter3);
-        System.out.println(" ");
         System.out.println("Dienstwagen wird gefahren von Mitarbeiter");
-        System.out.println("- - - - - - - - -");
         System.out.println(auto1);
         System.out.println(auto2);
         System.out.println(auto3);
