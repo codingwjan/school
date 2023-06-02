@@ -12,6 +12,7 @@ public class Main {
         mitarbeiter.getArbeitsvertrag().setGehalt(gehalt);
         mitarbeiter.getArbeitsvertrag().setTaetigkeit(taetigkeit);
 
-        System.out.println(mitarbeiter.getVorname() + " " + mitarbeiter.getNachname() + " earns " + mitarbeiter.getArbeitsvertrag().getGehalt() + " Euro als " + mitarbeiter.getArbeitsvertrag().getTaetigkeit());
+
+        System.out.println(mitarbeiter.getVorname() + " " + mitarbeiter.getNachname() + " earns $" + mitarbeiter.getArbeitsvertrag().getGehalt() + ". He is the " + mitarbeiter.getArbeitsvertrag().getTaetigkeit());
     }
 }
