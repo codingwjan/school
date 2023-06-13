@@ -16,16 +16,15 @@ export default function Routing() {
     return (
         <Router>
             <Routes>
+                <Route path="/" element={<Landing/>}/>
                 <Route path="/buttonview" element={<ButtonView/>}/>
                 <Route path="/questionview" element={<QuestionView/>}/>
                 <Route path="/scoreboard" element={<ScoreboardView/>}/>
-                <Route path="/landing" element={<Landing/>}/>
-                <Route path="/userlist" element={<Userlist/>}/>
+                <Route path="/teacheruserlist" element={<Userlist/>}/>
                 <Route path="/loginclient" element={<Loginclient/>}/>
                 <Route path="/loginteacher" element={<Loginteacher/>}/>
                 <Route path="/teacherquestionview" element={<Teacherquestionview/>}/>
                 <Route path="/answerpage" element={<Answerpage/>}/>
-                <Route path="/" element={<Landing/>}/>
                 <Route path={"/clientuserlist"} element={<Clientuserlist/>}/>
                 <Route path={"/answerclient"} element={<Answerclient/>}/>
             </Routes>
