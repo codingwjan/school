@@ -1,4 +1,7 @@
 // UserCard Component
+import axios from "axios";
+import {useEffect, useRef, useState} from "react";
+
 const UserCard = ({ person, postition }) => {
     return (
         <li key={person.email} className="flex justify-between gap-x-6 py-5">
@@ -38,6 +41,39 @@ const TopPlayerCard = ({ person, position }) => {
 
 // Your ScoreboardView Component
 export default function ScoreboardView() {
+    //wait for the serve to send me a signal when the game starts
+
+    const [gameStarted, setGameStarted] = useState(false);
+    const [progress, setProgress] = useState(8);
+    const progressRef = useRef(progress);
+    axios.get("http://localhost:8080/game/started").then((response) => {
+        setGameStarted(response.data);
+    })
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setProgress((prevProgress) => {
+                const newProgress = prevProgress - 1;
+                progressRef.current = newProgress;
+                console.log(newProgress);
+                return newProgress;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer); // Cleanup the timer on component unmount
+    }, []);
+
+    useEffect(() => {
+        if (progressRef.current <= 0) {
+            window.location.href = "/questionview";
+        }
+    }, [progressRef.current]);
+
+
+    //when the game starts, redirect to /questionview
+    if (gameStarted) {
+        window.location.href = "/questionview";
+    }
     const people = [
         {
             name: 'Leslie Alexander',

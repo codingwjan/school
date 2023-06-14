@@ -8,7 +8,7 @@ export default function Loginteacher() {
         event.preventDefault();
         try {
             alert('A name was submitted: ' + username)
-            const response = await fetch('http://your-server.com/ip/student', {
+            const response = await fetch('localhost:8420', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,24 +1,22 @@
 import {useState} from 'react';
 
-export default function Loginclient() {
+export default function Loginclient({ip}) {
     const [username, setUsername] = useState('');
+    const [gameId, setGameId] = useState('');
     const [profilePicture, setProfilePicture] = useState('');
 
     const handleSubmit = async (event) => {
+        console.log(ip+`/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`)
         event.preventDefault();
         try {
-            alert('A name was submitted: ' + username)
-            const response = await fetch('http://your-server.com/ip/student', {
+            const response = await fetch(ip+`/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    profilePicture
-                })
+                }
             });
             // Handle the response from the server
+            window.location.href = '/scoreboard';
         } catch (error) {
             console.error('Error:', error);
         }
@@ -58,6 +56,24 @@ export default function Loginclient() {
                     </div>
 
                     <div>
+                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                            Game Code
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                id="username"
+                                name="username"
+                                type="number"
+                                autoComplete="username"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                value={gameId}
+                                onChange={(event) => setGameId(event.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div>
                         <label htmlFor="profilepicture" className="block text-sm font-medium leading-6 text-gray-900">
                             Profile Picture (Picture URL)
                         </label>
@@ -66,7 +82,6 @@ export default function Loginclient() {
                                 id="profilepicture"
                                 name="profilepicture"
                                 type="text"
-                                required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 value={profilePicture}
                                 onChange={(event) => setProfilePicture(event.target.value)}

@@ -28,26 +28,8 @@ export default function Teacherquestionview() {
                         }
                     }></div>
                 </div>
-                <div className={"text-5xl font-bold text-black text-center px-10 mt-14"}>cupidatat mollit id commodo
-                    duis nulla dolore consectetur aute deserunt quis ut sunt dolor laboris amet ullamco occaecat in
-                    dolor
-                </div>
-                <div className={"grid grid-cols-2 gap-4 mt-14 w-full"}>
-                    <div
-                        className={"bg-red-500 h-60 w-full rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-pointer transition-all duration-200"}>Mr
-                        Big
-                    </div>
-                    <div
-                        className={"bg-indigo-500 h-60 w-full rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-pointer transition-all duration-200"}>Mr
-                        Nice
-                    </div>
-                    <div
-                        className={"bg-yellow-300 h-60 w-full rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-pointer transition-all duration-200"}>Rucu
-                        rucu
-                    </div>
-                    <div
-                        className={"bg-green-500 h-60 w-full rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-pointer transition-all duration-200"}>Nichts
-                    </div>
+                <div className={"text-7xl font-bold text-black text-center px-10 mt-20"}>
+                    Wer ist der beste lehrer?
                 </div>
             </div>
         </div>
