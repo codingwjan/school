@@ -10,7 +10,6 @@ import Loginteacher from "./loginteacher.jsx";
 import Teacherquestionview from "./teacherquestionview.jsx";
 import Answerpage from "./answerpage.jsx";
 import Clientuserlist from "./clientuserlist.jsx";
-import Answerclient from "./answerclient.jsx";
 
 export default function Routing() {
     let ip = "http://127.0.0.1:8420"
@@ -27,7 +26,6 @@ export default function Routing() {
                 <Route path="/teacherquestionview" element={<Teacherquestionview ip={ip}/>}/>
                 <Route path="/answerpage" element={<Answerpage ip={ip}/>}/>
                 <Route path={"/clientuserlist"} element={<Clientuserlist ip={ip}/>}/>
-                <Route path={"/answerclient"} element={<Answerclient ip={ip}/>}/>
             </Routes>
         </Router>
     );

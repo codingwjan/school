@@ -1,30 +1,23 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default function Loginteacher() {
     const [username, setUsername] = useState('');
-    const [profilePicture, setProfilePicture] = useState('');
+    const [id, setId] = useState('');
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            alert('A name was submitted: ' + username)
-            const response = await fetch('localhost:8420', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    profilePicture
-                })
-            });
-            // Handle the response from the server
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        useEffect(() => {
+            fetch("http://0.0.0.0:8420/teacher?teacherId="+id+"&teacherName="+username)
 
-        //if status 200
-        window.location.href = '/student';
+            .then(res => res.json())
+            .then(data => {
+                    console.log(data);
+
+                    if (data.status === "success") {
+                        window.location.href = "/teacheruserlist";
+                    }
+                }
+            )
+        }, [])
     };
 
     return (
@@ -44,12 +37,12 @@ export default function Loginteacher() {
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Teacher Username
+                            Name
                         </label>
                         <div className="mt-2">
                             <input
-                                id="username"
-                                name="username"
+                                id="name"
+                                name="name"
                                 type="text"
                                 autoComplete="username"
                                 required
@@ -62,16 +55,16 @@ export default function Loginteacher() {
 
                     <div>
                         <label htmlFor="profilepicture" className="block text-sm font-medium leading-6 text-gray-900">
-                            Password
+                            Teacher ID
                         </label>
                         <div className="mt-2">
                             <input
-                                id="password"
-                                name="password"
-                                type="password"
+                                id="number"
+                                name="number"
+                                type="number"
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={profilePicture}
+                                value={id}
                                 onChange={(event) => setProfilePicture(event.target.value)}
                             />
                         </div>

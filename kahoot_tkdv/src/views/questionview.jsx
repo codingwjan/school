@@ -5,6 +5,7 @@ export default function QuestionView() {
     const progressRef = useRef(progress);
     const total = 5;
 
+
     useEffect(() => {
         let isMounted = true; // Initial mounted state is true
 

@@ -9,14 +9,21 @@ export default function Loginclient({ip}) {
         console.log(ip+`/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`)
         event.preventDefault();
         try {
-            const response = await fetch(ip+`/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`, {
+            var requestOptions = {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+                redirect: 'follow'
+            };
+
+            fetch("http://0.0.0.0:8420/student?name="+username+"&gameId="+gameId+"&profilePicture="+profilePicture, requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
             // Handle the response from the server
-            window.location.href = '/scoreboard';
+            //set to local storage current question = 0
+            localStorage.setItem('currentQuestion', "0");
+            localStorage.setItem('gameId', gameId);
+            localStorage.setItem('username', username);
+            window.location.href = '/clientuserlist';
         } catch (error) {
             console.error('Error:', error);
         }
