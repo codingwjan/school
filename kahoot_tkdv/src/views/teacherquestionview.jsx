@@ -1,9 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Teacherquestionview() {
     const [progress, setProgress] = useState(15);
     const total = 15;
     const [userchoose, setUserchoose] = useState();
+    const [fetching, setFetching] = useState(false);
+    const [questionData, setQuestionData] = useState({question: '', answers: []});
     //make the number larger every second
     async function startTimer() {
         while (progress > 0) {
@@ -12,6 +14,25 @@ export default function Teacherquestionview() {
         }
         window.location.href = "/scoreboard"
     }
+
+    useEffect(() => {
+        if (!fetching) {
+            setFetching(true);
+            fetch("http://0.0.0.0:8420/questions/" + localStorage.getItem("currentQuestion"))
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    setQuestionData(data);
+                    let currentLocal = parseInt(localStorage.getItem("currentQuestion")) || 0;
+                    currentLocal += 1;
+                    console.log(currentLocal);
+                    localStorage.setItem("currentQuestion", currentLocal.toString());
+                })
+                .finally(() => {
+                    setFetching(false);
+                });
+        }
+    }, []);
 
     startTimer();
     return (
@@ -29,7 +50,7 @@ export default function Teacherquestionview() {
                     }></div>
                 </div>
                 <div className={"text-7xl font-bold text-black text-center px-10 mt-20"}>
-                    Wer ist der beste lehrer?
+                    {questionData.question}
                 </div>
             </div>
         </div>
