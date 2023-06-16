@@ -9,13 +9,23 @@ export default function Userlist() {
                 setPeople(data);
             })
     }, [])
+
+    const startgame = () => {
+        fetch("http://0.0.0.0:8420/startnow?gameId="+localStorage.getItem("gameId")+"&teacherId="+localStorage.getItem("teacherId"))
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                window.location.href = "/questionview";
+            }
+            )
+    }
     return (
         <div className={"bg-white p-10"}>
             <div className={"flex flex-col"}>
                 <div className={"flex justify-between"}>
                     <div className={"flex justify-between w-full"}>
                         <div className={"text-5xl font-bold"}>Userlist</div>
-                        <button className={"bg-indigo-500 text-2xl font-bold p-2 text-white rounded-xl"}>Start Game
+                        <button className={"bg-indigo-500 text-2xl font-bold p-2 text-white rounded-xl"} onClick={startgame}>Start Game
                         </button>
                     </div>
                 </div>

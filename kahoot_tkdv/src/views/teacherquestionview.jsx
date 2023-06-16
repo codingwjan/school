@@ -12,7 +12,7 @@ export default function Teacherquestionview() {
             await new Promise(r => setTimeout(r, 1000));
             setProgress(progress - 1)
         }
-        window.location.href = "/scoreboard"
+        window.location.href = "/answerpage"
     }
 
     useEffect(() => {

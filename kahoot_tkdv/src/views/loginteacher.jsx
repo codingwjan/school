@@ -4,20 +4,27 @@ export default function Loginteacher() {
     const [username, setUsername] = useState('');
     const [id, setId] = useState('');
 
-    const handleSubmit = async (event) => {
-        useEffect(() => {
-            fetch("http://0.0.0.0:8420/teacher?teacherId="+id+"&teacherName="+username)
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log("fetching");
 
-            .then(res => res.json())
+        fetch("http://0.0.0.0:8420/teacher?teacherId="+id+"&teacherName="+username, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
             .then(data => {
-                    console.log(data);
+                console.log(data.status);
 
-                    if (data.status === "success") {
-                        window.location.href = "/teacheruserlist";
-                    }
+                // check if the data has a statusCode property with a value of 200
+                if (data.status === 200) {
+                    localStorage.setItem("isTeacher", "true");
+                    localStorage.setItem("teacherId", id.toString());
+                    window.location.href = "/teacheruserlist";
                 }
-            )
-        }, [])
+            })
+            .catch(err => console.error(err));
     };
 
     return (
@@ -59,13 +66,13 @@ export default function Loginteacher() {
                         </label>
                         <div className="mt-2">
                             <input
-                                id="number"
+                                id="id"
                                 name="number"
                                 type="number"
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 value={id}
-                                onChange={(event) => setProfilePicture(event.target.value)}
+                                onChange={(event) => setId(event.target.value)}
                             />
                         </div>
                     </div>

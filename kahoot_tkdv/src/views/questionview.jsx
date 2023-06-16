@@ -19,7 +19,11 @@ export default function QuestionView() {
                 });
             }
             if (isMounted) {
-                window.location.href = "/buttonview";
+                if (localStorage.getItem("isTeacher") === "true") {
+                    window.location.href = "/teacherquestionview";
+                } else {
+                    window.location.href = "/buttonview";
+                }
             }
         }
 

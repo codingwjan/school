@@ -112,6 +112,15 @@ class Fahrzeug {
     }
 }
 
+class Wartezeit {
+    private LocalDateTime start;
+    private LocalDateTime ende;
+
+    public Wartezeit() {
+        this.start = LocalDateTime.now();
+    }
+}
+
 class LieferserviceVerwaltung {
     private double gutschriftHoehe = 3;
     private List<Kunde> kundenListe = new ArrayList<>();

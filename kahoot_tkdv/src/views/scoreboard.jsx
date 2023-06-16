@@ -43,6 +43,14 @@ const TopPlayerCard = ({ person, position }) => {
 export default function ScoreboardView() {
     //wait for the serve to send me a signal when the game starts
 
+    //check every second asynchonously if the game has started
+    fetch("http://0.0.0.0:8420/hasstarted").then((response) => {
+        if (response.data === "true") {
+            window.location.href = "/questionview";
+        }
+    }
+    )
+
     const [gameStarted, setGameStarted] = useState(false);
     const [progress, setProgress] = useState(8);
     const progressRef = useRef(progress);

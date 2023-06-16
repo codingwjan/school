@@ -22,7 +22,7 @@ export default function ButtonView() {
 
     useEffect(() => {
         if (progressRef.current <= 0) {
-            window.location.href = "/scoreboard";
+            window.location.href = "/answerpage";
         }
     }, [progressRef.current]);
 
