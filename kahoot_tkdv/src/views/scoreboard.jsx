@@ -1,4 +1,3 @@
-// UserCard Component
 import axios from "axios";
 import {useEffect, useRef, useState} from "react";
 
@@ -17,7 +16,6 @@ const UserCard = ({ person, postition }) => {
     )
 }
 
-// Scoreboard Component
 const Scoreboard = ({ people }) => {
     return (
         <ul role="list" className="divide-y divide-gray-100">
@@ -26,7 +24,6 @@ const Scoreboard = ({ people }) => {
     )
 }
 
-// TopPlayerCard Component
 const TopPlayerCard = ({ person, position }) => {
     return (
         <div className={"border-2 border-black w-fit rounded-2xl p-5"}>
@@ -39,21 +36,11 @@ const TopPlayerCard = ({ person, position }) => {
     )
 }
 
-// Your ScoreboardView Component
 export default function ScoreboardView({ip}) {
-    //wait for the serve to send me a signal when the game starts
-
-    //check every second asynchonously if the game has started
-    fetch(ip+"/hasstarted").then((response) => {
-        if (response.data === "true") {
-            window.location.href = "/questionview";
-        }
-    }
-    )
-console.log(ip)
     const [gameStarted, setGameStarted] = useState(false);
     const [progress, setProgress] = useState(8);
     const progressRef = useRef(progress);
+
     axios.get(ip+"/hasstarted").then((response) => {
         console.log("hasstarted");
         console.log(response.data);
@@ -79,21 +66,34 @@ console.log(ip)
         }
     }, [progressRef.current]);
 
+    const [people, setPeople] = useState({ students: [] }); // Initialize people as an object with students as an empty array
 
-    const [people, setPeople] = useState([]);
     useEffect(() => {
         fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setPeople(data);
+                setPeople(data); // Set the people state as the fetched data
             })
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            fetch(ip+"/hasstarted").then((response) => {
+                if (response.data === "true") {
+                    window.location.href = "/questionview";
+                }
+            });
+        }, 1000);  // Polling every 1 second
+
+        return () => clearInterval(interval); // Clearing interval when component unmounts
     }, []);
 
     console.log(people);
 
-    const topPlayers = people.students.slice(0, 3);
-    const restOfPlayers = people.students.slice(3);
+    // Check if people.students is not undefined before slicing
+    const topPlayers = people.students ? people.students.slice(0, 3) : [];
+    const restOfPlayers = people.students ? people.students.slice(3) : [];
 
     return (
         <div className={"bg-white p-10"}>

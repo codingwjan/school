@@ -2,18 +2,29 @@ import {useEffect, useState} from "react";
 
 export default function Userlist({ip}) {
     const [people, setPeople] = useState([]);
+
     useEffect(() => {
-        fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
-            .then(res => res.json())
-            .then(data => {
-                if (Array.isArray(data.students)) {
-                    setPeople(data.students); // only take the students array from the data
-                } else {
-                    // handle the case where data.students is not an array
-                    setPeople([]); // set to an empty array, or handle this situation as you see fit
-                }
-            })
-    }, [])
+        const interval = setInterval(() => {
+            fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
+                .then(res => res.json())
+                .then(data => {
+                    if (Array.isArray(data.students)) {
+                        setPeople(data.students); // only take the students array from the data
+                    } else {
+                        // handle the case where data.students is not an array
+                        setPeople([]); // set to an empty array, or handle this situation as you see fit
+                    }
+
+                    // Assuming game status is present in data
+                    // Replace "gameStatus" with the appropriate field in your response
+                    if (data.gameStatus === "started") {
+                        window.location.href = "/questionview";
+                    }
+                })
+        }, 500);  // Polling every 5 seconds
+
+        return () => clearInterval(interval); // Clearing interval when component unmounts
+    }, []);
 
     const startgame = () => {
         var requestOptions = {
