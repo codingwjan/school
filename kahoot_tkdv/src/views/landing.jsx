@@ -18,6 +18,7 @@ export default function Landing() {
                             <span className="sr-only">Pro Web-Development</span>
                             <img
                                 className="h-32 w-auto invert"
+
                                 src="https://pro-webdev.de/assets/logo-508d7998.png"
                                 alt="Pro-WebDev logo"
                             />

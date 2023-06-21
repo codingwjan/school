@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export default function Teacherquestionview() {
+export default function Teacherquestionview({ip}) {
     const [progress, setProgress] = useState(15);
     const total = 15;
     const [userchoose, setUserchoose] = useState();
@@ -18,7 +18,7 @@ export default function Teacherquestionview() {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch("http://0.0.0.0:8420/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);

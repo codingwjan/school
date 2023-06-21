@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function ButtonView() {
+export default function ButtonView({ip}) {
     const [userchoose, setUserchoose] = useState(null);
     const [progress, setProgress] = useState(15);
     const [questionData, setQuestionData] = useState({question: '', answers: []});
     const [fetching, setFetching] = useState(false);
     const progressRef = useRef(progress);
     const total = 15;
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -29,7 +30,7 @@ export default function ButtonView() {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch("http://0.0.0.0:8420/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -80,10 +81,10 @@ export default function ButtonView() {
                                 let currentscore = localStorage.getItem("userScore")
                                     currentscore += index;
 
-                                console.log("http://0.0.0.0:8420/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
+                                console.log(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
 
                                 //send to server
-                                fetch("http://0.0.0.0:8420/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
+                                fetch(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
                                     .then(response => response.text())
                                     .then(result => console.log(result))
                                     .catch(error => console.log('error', error));

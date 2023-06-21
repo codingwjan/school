@@ -14,7 +14,7 @@ export default function Loginclient({ip}) {
                 redirect: 'follow'
             };
 
-            fetch("http://0.0.0.0:8420/student?name="+username+"&gameId="+gameId+"&profilePicture="+profilePicture, requestOptions)
+            fetch(ip+"/student?name="+username+"&gameId="+gameId+"&profilePicture="+profilePicture, requestOptions)
                 .then(response => response.text())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));

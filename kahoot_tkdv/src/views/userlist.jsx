@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 
-export default function Userlist() {
+export default function Userlist({ip}) {
     const [people, setPeople] = useState([]);
     useEffect(() => {
-        fetch("http://0.0.0.0:8420/game/info?gameId="+localStorage.getItem("gameId"))
+        fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
             .then(res => res.json())
             .then(data => {
                 if (Array.isArray(data.students)) {
@@ -16,13 +16,17 @@ export default function Userlist() {
     }, [])
 
     const startgame = () => {
-        fetch("http://0.0.0.0:8420/startnow?gameId="+localStorage.getItem("gameId")+"&teacherId="+localStorage.getItem("teacherId"))
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                window.location.href = "/questionview";
-            }
-            )
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow'
+        };
+
+        fetch(ip+"/startnow?gameId=1&teacherId=1", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        //if that works, then redirect to the questionview
+        window.location.href = "/questionview";
     }
     return (
         <div className={"bg-white p-10"}>

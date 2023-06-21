@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export default function Loginteacher() {
+export default function Loginteacher({ip}) {
     const [username, setUsername] = useState('');
     const [id, setId] = useState('');
 
@@ -8,7 +8,7 @@ export default function Loginteacher() {
         e.preventDefault();
         console.log("fetching");
 
-        fetch("http://0.0.0.0:8420/teacher?teacherId="+id+"&teacherName="+username, {
+        fetch(ip+"/teacher?teacherId="+id+"&teacherName="+username, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -20,6 +20,7 @@ export default function Loginteacher() {
                 // check if the data has a statusCode property with a value of 200
                 if (data.status === 200) {
                     localStorage.setItem("isTeacher", "true");
+                    localStorage.setItem("isTeacher", "0");
                     localStorage.setItem("teacherId", id.toString());
                     window.location.href = "/teacheruserlist";
                 }

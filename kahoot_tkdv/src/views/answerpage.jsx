@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 
-export default function Answerpage() {
+export default function Answerpage({ip}) {
     const [progress, setProgress] = useState(7);
     const progressRef = useRef(progress);
     let total = 7;
@@ -30,7 +30,7 @@ export default function Answerpage() {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch("http://0.0.0.0:8420/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
                     console.log("data"+data);

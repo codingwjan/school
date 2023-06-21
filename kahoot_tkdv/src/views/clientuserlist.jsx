@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
+import axios from "axios";
 
-export default function Clientuserlist() {
+export default function Clientuserlist({ip}) {
     //get the list of users from the server
+    const [gameStarted, setGameStarted] = useState(false);
     const [people, setPeople] = useState([]);
     useEffect(() => {
-            fetch("http://0.0.0.0:8420/game/info?gameId="+localStorage.getItem("gameId"))
+            fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -13,6 +15,16 @@ export default function Clientuserlist() {
                 })
         }
         , [])
+
+    axios.get(ip+"/hasstarted").then((response) => {
+        console.log("hasstarted");
+        console.log(response.data);
+        setGameStarted(response.data);
+    })
+
+    if (gameStarted && localStorage.getItem("currentQuestion") === "0") {
+        window.location.href = "/questionview";
+    }
     return (
         <div className={"bg-white p-10"}>
             <div className={"flex flex-col"}>

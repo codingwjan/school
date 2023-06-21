@@ -12,7 +12,7 @@ import Answerpage from "./answerpage.jsx";
 import Clientuserlist from "./clientuserlist.jsx";
 
 export default function Routing() {
-    let ip = "http://127.0.0.1:8420"
+    let ip = "http://37.114.42.93:9864"
     return (
         <Router>
             <Routes>

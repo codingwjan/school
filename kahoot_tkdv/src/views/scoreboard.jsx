@@ -40,21 +40,23 @@ const TopPlayerCard = ({ person, position }) => {
 }
 
 // Your ScoreboardView Component
-export default function ScoreboardView() {
+export default function ScoreboardView({ip}) {
     //wait for the serve to send me a signal when the game starts
 
     //check every second asynchonously if the game has started
-    fetch("http://0.0.0.0:8420/hasstarted").then((response) => {
+    fetch(ip+"/hasstarted").then((response) => {
         if (response.data === "true") {
             window.location.href = "/questionview";
         }
     }
     )
-
+console.log(ip)
     const [gameStarted, setGameStarted] = useState(false);
     const [progress, setProgress] = useState(8);
     const progressRef = useRef(progress);
-    axios.get("http://0.0.0.0:8420/game/started").then((response) => {
+    axios.get(ip+"/hasstarted").then((response) => {
+        console.log("hasstarted");
+        console.log(response.data);
         setGameStarted(response.data);
     })
 
@@ -72,19 +74,15 @@ export default function ScoreboardView() {
     }, []);
 
     useEffect(() => {
-        if (progressRef.current <= 0) {
+        if (progressRef.current <= 0 && parseInt(localStorage.getItem("currentQuestion")) >  16) {
             window.location.href = "/questionview";
         }
     }, [progressRef.current]);
 
 
-    //when the game starts, redirect to /questionview
-    if (gameStarted) {
-        window.location.href = "/questionview";
-    }
     const [people, setPeople] = useState([]);
     useEffect(() => {
-        fetch("http://0.0.0.0:8420/game/info?gameId="+localStorage.getItem("gameId"))
+        fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -92,9 +90,10 @@ export default function ScoreboardView() {
             })
     }, []);
 
+    console.log(people);
 
-    const topPlayers = people.slice(0, 3);
-    const restOfPlayers = people.slice(3);
+    const topPlayers = people.students.slice(0, 3);
+    const restOfPlayers = people.students.slice(3);
 
     return (
         <div className={"bg-white p-10"}>
