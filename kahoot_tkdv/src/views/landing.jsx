@@ -17,8 +17,8 @@ export default function Landing() {
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Pro Web-Development</span>
                             <img
-                                className="h-8 w-auto"
-                                src="https://pro-webdev.de/assets/stackLogo-a49a3d55.webp"
+                                className="h-32 w-auto invert"
+                                src="https://pro-webdev.de/assets/logo-508d7998.png"
                                 alt="Pro-WebDev logo"
                             />
                         </a>

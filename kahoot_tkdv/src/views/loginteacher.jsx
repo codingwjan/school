@@ -31,8 +31,8 @@ export default function Loginteacher() {
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
-                    className="mx-auto h-10 w-auto"
-                    src="https://pro-webdev.de/assets/stackLogo-a49a3d55.webp"
+                    className="mx-auto h-48 w-auto invert"
+                    src="https://pro-webdev.de/assets/logo-508d7998.png"
                     alt="Pro Web-Development"
                 />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
