@@ -24,10 +24,6 @@ export default function Teacherquestionview({ip}) {
                 .then((data) => {
                     console.log(data);
                     setQuestionData(data);
-                    let currentLocal = parseInt(localStorage.getItem("currentQuestion")) || 0;
-                    currentLocal += 1;
-                    console.log(currentLocal);
-                    localStorage.setItem("currentQuestion", currentLocal.toString());
                 })
                 .finally(() => {
                     setFetching(false);

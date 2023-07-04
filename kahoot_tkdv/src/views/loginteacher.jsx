@@ -21,6 +21,7 @@ export default function Loginteacher({ip}) {
                 if (data.status === 200) {
                     localStorage.setItem("isTeacher", "true");
                     localStorage.setItem("teacherId", id.toString());
+                    localStorage.setItem("currentQuestion", "0");
                     window.location.href = "/teacheruserlist";
                 }
             })
