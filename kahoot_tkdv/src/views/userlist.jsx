@@ -5,7 +5,7 @@ export default function Userlist({ip}) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
+            fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"))
                 .then(res => res.json())
                 .then(data => {
                     if (Array.isArray(data.students)) {
@@ -32,7 +32,7 @@ export default function Userlist({ip}) {
             redirect: 'follow'
         };
 
-        fetch(ip+"/startnow?gameId=1&teacherId=1", requestOptions)
+        fetch(ip + "/startnow?gameId=1&teacherId=1", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
@@ -45,21 +45,22 @@ export default function Userlist({ip}) {
                 <div className={"flex justify-between"}>
                     <div className={"flex justify-between w-full"}>
                         <div className={"text-5xl font-bold"}>Userlist</div>
-                        <button className={"bg-indigo-500 text-2xl font-bold p-2 text-white rounded-xl"} onClick={startgame}>Start Game
+                        <button className={"bg-indigo-500 text-2xl font-bold p-2 text-white rounded-xl"}
+                                onClick={startgame}>Start Game
                         </button>
                     </div>
                 </div>
             </div>
             <ul role="list" className="divide-y divide-gray-100 mt-5">
                 <ul role="list" className="divide-y divide-gray-100">
-                    {people.map((person, index) => <UserCard person={person} postition={index +1} />)}
+                    {people.map((person, index) => <UserCard person={person} postition={index + 1}/>)}
                 </ul>
             </ul>
         </div>
     )
 }
 // UserCard Component
-const UserCard = ({ person, postition }) => {
+const UserCard = ({person, postition}) => {
     return (
         <li key={person.email} className="flex justify-between gap-x-6 py-5">
             <div className="flex gap-x-4">

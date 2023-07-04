@@ -6,6 +6,7 @@ export default function Teacherquestionview({ip}) {
     const [userchoose, setUserchoose] = useState();
     const [fetching, setFetching] = useState(false);
     const [questionData, setQuestionData] = useState({question: '', answers: []});
+
     //make the number larger every second
     async function startTimer() {
         while (progress > 0) {
@@ -18,7 +19,7 @@ export default function Teacherquestionview({ip}) {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip + "/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -44,8 +45,8 @@ export default function Teacherquestionview({ip}) {
                 <div className={"h-3 w-1/2 bg-gray-400 rounded-full mx-auto mt-5"}>
                     <div className={"h-3 bg-black rounded-full transition-all duration-700"} style={
                         {
-                            width: progress/total * 100 + "%",
-                            backgroundColor: "rgb(" + (255 - progress/total * 255) + ", 0, 0)"
+                            width: progress / total * 100 + "%",
+                            backgroundColor: "rgb(" + (255 - progress / total * 255) + ", 0, 0)"
                         }
                     }></div>
                 </div>

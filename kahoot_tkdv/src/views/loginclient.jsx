@@ -6,7 +6,7 @@ export default function Loginclient({ip}) {
     const [profilePicture, setProfilePicture] = useState('');
 
     const handleSubmit = async (event) => {
-        console.log(ip+`/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`)
+        console.log(ip + `/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`)
         event.preventDefault();
         try {
             var requestOptions = {
@@ -14,7 +14,7 @@ export default function Loginclient({ip}) {
                 redirect: 'follow'
             };
 
-            fetch(ip+"/student?name="+username+"&gameId="+gameId+"&profilePicture="+profilePicture, requestOptions)
+            fetch(ip + "/student?name=" + username + "&gameId=" + gameId + "&profilePicture=" + profilePicture, requestOptions)
                 .then(response => response.text())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
@@ -33,8 +33,8 @@ export default function Loginclient({ip}) {
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
-                    className="mx-auto h-10 w-auto"
-                    src="https://pro-webdev.de/assets/stackLogo-a49a3d55.webp"
+                    className="mx-auto h-40 w-auto invert"
+                    src="https://pro-webdev.de/assets/logo-508d7998.png"
                     alt="Pro Web-Development"
                 />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import {useEffect, useRef, useState} from "react";
 
 export default function ButtonView({ip}) {
     const [userchoose, setUserchoose] = useState(null);
@@ -30,7 +30,7 @@ export default function ButtonView({ip}) {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip + "/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -74,17 +74,17 @@ export default function ButtonView({ip}) {
                                 setUserchoose(index);
                                 if (index === questionData.correctAnswer) {
                                     let currentscore = parseInt(localStorage.getItem("userScore"))
-                                    currentscore += (progressRef.current*100);
+                                    currentscore += (progressRef.current * 100);
                                     localStorage.setItem("userScore", currentscore.toString());
                                     console.log(currentscore);
                                 }
                                 let currentscore = localStorage.getItem("userScore")
-                                    currentscore += index;
+                                currentscore += index;
 
-                                console.log(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
+                                console.log(ip + "/update?gameId=" + localStorage.getItem("gameId") + "&username=" + localStorage.getItem("username") + "&points=" + currentscore)
 
                                 //send to server
-                                fetch(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+currentscore)
+                                fetch(ip + "/update?gameId=" + localStorage.getItem("gameId") + "&username=" + localStorage.getItem("username") + "&points=" + currentscore)
                                     .then(response => response.text())
                                     .then(result => console.log(result))
                                     .catch(error => console.log('error', error));

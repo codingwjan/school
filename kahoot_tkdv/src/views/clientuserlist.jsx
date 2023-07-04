@@ -6,7 +6,7 @@ export default function Clientuserlist({ip}) {
     const [gameStarted, setGameStarted] = useState(false);
     const [people, setPeople] = useState([]);
     useEffect(() => {
-            fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
+            fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"))
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -16,7 +16,7 @@ export default function Clientuserlist({ip}) {
         }
         , [])
 
-    axios.get(ip+"/hasstarted").then((response) => {
+    axios.get(ip + "/hasstarted").then((response) => {
         console.log("hasstarted");
         console.log(response.data);
         setGameStarted(response.data);
@@ -38,7 +38,8 @@ export default function Clientuserlist({ip}) {
                 {people.map((person) => (
                     <li key={person.name} className="flex justify-between gap-x-6 py-5">
                         <div className="flex gap-x-4">
-                            <img className="h-12 w-12 object-cover flex-none rounded-full bg-gray-50" src={person.profilePicture} alt=""/>
+                            <img className="h-12 w-12 object-cover flex-none rounded-full bg-gray-50"
+                                 src={person.profilePicture} alt=""/>
                             <div className="min-w-0 flex-auto h-full flex items-center">
                                 <p className="text-2xl font-bold leading-6 text-gray-900">{person.name}</p>
                             </div>

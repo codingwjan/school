@@ -30,11 +30,13 @@ export default function Answerpage({ip}) {
     useEffect(() => {
         if (!fetching) {
             setFetching(true);
-            fetch(ip+"/questions/" + localStorage.getItem("currentQuestion"))
+            fetch(ip + "/questions/" + localStorage.getItem("currentQuestion"))
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("data"+data);
-                    setQuestionData(data);
+                    console.log("data" + data);
+                    // Instead of replacing the answers array, we replace the single correct answer
+                    const correctAnswer = data.answers[data.correctAnswer];
+                    setQuestionData({...data, answers: [correctAnswer]});
                     let currentLocal = parseInt(localStorage.getItem("currentQuestion")) || 0;
                     currentLocal += 1;
                     console.log(currentLocal);
@@ -67,27 +69,19 @@ export default function Answerpage({ip}) {
                 </div>
                 <div className={"text-5xl font-bold text-black text-center px-10 mt-14"}>{questionData.question}</div>
             </div>
-            <div
-                className={
-                    "grid grid-cols-2 gap-4 mt-14 w-full"
-                }
-            >
-            {questionData.answers.map((answer, index) => (
-                <div
-                    key={index}
-
-                    className={
-                        "h-60 w-full rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-pointer hover:brightness-75 transition-all duration-200" +
-                        (index === 0 ? " bg-red-500" : "") +
-                        (index === 1 ? " bg-indigo-500" : "") +
-                        (index === 2 ? " bg-yellow-300" : "") +
-                        (index === 3 ? " bg-green-500" : "")
-                    }
-                >
-                    {answer}
-                </div>
-            ))}
+            <div className={"flex justify-center mt-16"}>
+                {questionData.answers.map((answer, index) => (
+                    <div
+                        key={index}
+                        className={
+                            "h-60 w-5/6 rounded-lg text-white font-black text-5xl flex justify-center text-center items-center cursor-not-allowed transition-all duration-200 bg-green-500" // Since we only have one correct answer, the background is always green
+                        }
+                    >
+                        {answer}
+                    </div>
+                ))}
             </div>
         </div>
     )
+
 }

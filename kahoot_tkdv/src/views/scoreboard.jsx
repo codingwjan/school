@@ -1,12 +1,12 @@
 import axios from "axios";
 import {useEffect, useRef, useState} from "react";
 
-const UserCard = ({ person, postition }) => {
+const UserCard = ({person, postition}) => {
     return (
         <li key={person.email} className="flex justify-between gap-x-6 py-5">
             <div className="flex gap-x-4">
                 <div className={"text-3xl font-medium flex items-center"}>{postition}</div>
-                <img className="h-20 w-20 flex-none rounded-full bg-gray-50" src={person.imageUrl} alt=""/>
+                <img className="h-20 w-20 flex-none rounded-full bg-gray-50" src={person.profilePicture} alt=""/>
                 <div className="min-w-0 h-full my-auto">
                     <p className="text-3xl font-semibold leading-6 text-gray-900">{person.name}</p>
                     <p className="mt-3 truncate text-2xl font-bold leading-5 text-gray-500">{person.score}</p>
@@ -16,19 +16,19 @@ const UserCard = ({ person, postition }) => {
     )
 }
 
-const Scoreboard = ({ people }) => {
+const Scoreboard = ({people}) => {
     return (
         <ul role="list" className="divide-y divide-gray-100">
-            {people.map((person, index) => <UserCard person={person} postition={index + 4} />)}
+            {people.map((person, index) => <UserCard person={person} postition={index + 4}/>)}
         </ul>
     )
 }
 
-const TopPlayerCard = ({ person, position }) => {
+const TopPlayerCard = ({person, position}) => {
     return (
         <div className={"border-2 border-black w-fit rounded-2xl p-5"}>
             <div className={"text-3xl font-bold text-gray-600"}>{position}.</div>
-            <img src={person.imageUrl} alt={"logo"}
+            <img src={person.profilePicture} alt={"logo"}
                  className={"w-44 h-44 rounded-full object-cover mx-auto"}/>
             <div className={"text-3xl font-bold mt-3"}>{person.name}</div>
             <div className={"text-2xl font-medium"}>{person.score}</div>
@@ -41,9 +41,7 @@ export default function ScoreboardView({ip}) {
     const [progress, setProgress] = useState(8);
     const progressRef = useRef(progress);
 
-    axios.get(ip+"/hasstarted").then((response) => {
-        console.log("hasstarted");
-        console.log(response.data);
+    axios.get(ip + "/hasstarted").then((response) => {
         setGameStarted(response.data);
     })
 
@@ -52,7 +50,6 @@ export default function ScoreboardView({ip}) {
             setProgress((prevProgress) => {
                 const newProgress = prevProgress - 1;
                 progressRef.current = newProgress;
-                console.log(newProgress);
                 return newProgress;
             });
         }, 1000);
@@ -61,25 +58,25 @@ export default function ScoreboardView({ip}) {
     }, []);
 
     useEffect(() => {
-        if (progressRef.current <= 0 && parseInt(localStorage.getItem("currentQuestion")) >  16) {
+        console.log(progressRef.current + " " + localStorage.getItem("currentQuestion"));
+        if (progressRef.current <= 1 && parseInt(localStorage.getItem("currentQuestion")) < 16) {
             window.location.href = "/questionview";
         }
     }, [progressRef.current]);
 
-    const [people, setPeople] = useState({ students: [] }); // Initialize people as an object with students as an empty array
+    const [people, setPeople] = useState({students: []}); // Initialize people as an object with students as an empty array
 
     useEffect(() => {
-        fetch(ip+"/game/info?gameId="+localStorage.getItem("gameId"))
+        fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"))
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setPeople(data); // Set the people state as the fetched data
             })
     }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            fetch(ip+"/hasstarted").then((response) => {
+            fetch(ip + "/hasstarted").then((response) => {
                 if (response.data === "true") {
                     window.location.href = "/questionview";
                 }
@@ -89,7 +86,6 @@ export default function ScoreboardView({ip}) {
         return () => clearInterval(interval); // Clearing interval when component unmounts
     }, []);
 
-    console.log(people);
 
     // Check if people.students is not undefined before slicing
     const topPlayers = people.students ? people.students.slice(0, 3) : [];
@@ -108,10 +104,10 @@ export default function ScoreboardView({ip}) {
             </div>
             <div className={"flex w-full justify-center space-x-5 my-10"}>
                 {topPlayers.map((person, index) => (
-                    <TopPlayerCard person={person} position={index + 1} />
+                    <TopPlayerCard person={person} position={index + 1}/>
                 ))}
             </div>
-            <Scoreboard people={restOfPlayers} />
+            <Scoreboard people={restOfPlayers}/>
         </div>
     )
 }

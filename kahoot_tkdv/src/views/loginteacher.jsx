@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 export default function Loginteacher({ip}) {
     const [username, setUsername] = useState('');
@@ -8,7 +8,7 @@ export default function Loginteacher({ip}) {
         e.preventDefault();
         console.log("fetching");
 
-        fetch(ip+"/teacher?teacherId="+id+"&teacherName="+username, {
+        fetch(ip + "/teacher?teacherId=" + id + "&teacherName=" + username, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
