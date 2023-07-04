@@ -22,6 +22,7 @@ export default function Loginclient({ip}) {
             //set to local storage current question = 0
             localStorage.setItem('currentQuestion', "0");
             localStorage.setItem('gameId', gameId);
+            localStorage.setItem('userScore', "0");
             localStorage.setItem('username', username);
             window.location.href = '/clientuserlist';
         } catch (error) {
