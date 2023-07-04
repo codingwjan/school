@@ -84,7 +84,7 @@ export default function ButtonView({ip}) {
                                     redirect: 'follow'
                                 };
 
-                                fetch(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"points="+localStorage.getItem("userScore"), requestOptions)
+                                fetch(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"&points="+localStorage.getItem("userScore"), requestOptions)
                                     .then(response => response.text())
                                     .then(result => console.log(result))
                                     .catch(error => console.log('error', error));
