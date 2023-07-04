@@ -59,7 +59,7 @@ export default function ScoreboardView({ip}) {
 
     useEffect(() => {
         console.log(progressRef.current + " " + localStorage.getItem("currentQuestion"));
-        if (progressRef.current <= 1 && parseInt(localStorage.getItem("currentQuestion")) < 16) {
+        if (progressRef.current <= 1 && parseInt(localStorage.getItem("currentQuestion")) < 15) {
             window.location.href = "/questionview";
         }
     }, [progressRef.current]);
