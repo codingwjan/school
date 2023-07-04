@@ -70,7 +70,9 @@ export default function ScoreboardView({ip}) {
         fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"))
             .then(res => res.json())
             .then(data => {
-                setPeople(data); // Set the people state as the fetched data
+                // Converting points to integers and sorting in descending order
+                data.students.sort((a, b) => parseInt(b.points) - parseInt(a.points));
+                setPeople(data); // Set the people state as the sorted data
             })
     }, []);
 
