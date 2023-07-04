@@ -83,8 +83,12 @@ export default function ButtonView({ip}) {
 
                                 console.log(ip + "/update?gameId=" + localStorage.getItem("gameId") + "&username=" + localStorage.getItem("username") + "&points=" + currentscore)
 
-                                //send to server
-                                fetch(ip + "/update?gameId=" + localStorage.getItem("gameId") + "&username=" + localStorage.getItem("username") + "&points=" + currentscore)
+                                var requestOptions = {
+                                    method: 'POST',
+                                    redirect: 'follow'
+                                };
+
+                                fetch(ip+"/update?gameId="+localStorage.getItem("gameId")+"&username="+localStorage.getItem("username")+"points="+localStorage.getItem("userScore"), requestOptions)
                                     .then(response => response.text())
                                     .then(result => console.log(result))
                                     .catch(error => console.log('error', error));

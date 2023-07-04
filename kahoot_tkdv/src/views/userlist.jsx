@@ -32,12 +32,11 @@ export default function Userlist({ip}) {
             redirect: 'follow'
         };
 
-        fetch(ip + "/startnow?gameId=1&teacherId=1", requestOptions)
+        fetch(ip+"/startnow?gameId=1&teacherId=1", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-        //if that works, then redirect to the questionview
-        window.location.href = "/questionview";
+        //window.location.href = "/questionview";
     }
     return (
         <div className={"bg-white p-10"}>
