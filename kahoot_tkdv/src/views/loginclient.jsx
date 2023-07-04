@@ -1,111 +1,69 @@
-import {useState} from 'react';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
-export default function Loginclient({ip}) {
-    const [username, setUsername] = useState('');
-    const [gameId, setGameId] = useState('');
-    const [profilePicture, setProfilePicture] = useState('');
+export default function Clientuserlist({ip}) {
+    //get the list of users from the server
+    const [gameStarted, setGameStarted] = useState(false);
+    const [people, setPeople] = useState([]);
 
-    const handleSubmit = async (event) => {
-        console.log(ip + `/student?name=${username}&gameId=${gameId}&profilePicture=${profilePicture}`)
-        event.preventDefault();
-        try {
-            var requestOptions = {
-                method: 'POST',
-                redirect: 'follow'
-            };
+    useEffect(() => {
+        // Function to fetch game info
+        const fetchGameInfo = async () => {
+            const res = await fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"));
+            const data = await res.json();
+            console.log(data);
+            console.log(data.students[0].profilePicture)
+            setPeople(data.students || []);
+        };
 
-            fetch(ip + "/student?name=" + username + "&gameId=" + gameId + "&profilePicture=" + profilePicture, requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
-            // Handle the response from the server
-            //set to local storage current question = 0
-            localStorage.setItem('currentQuestion', "0");
-            localStorage.setItem('gameId', gameId);
-            localStorage.setItem('username', username);
-            window.location.href = '/clientuserlist';
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+        // Function to check if game has started
+        const checkGameStarted = async () => {
+            const response = await axios.get(ip + "/hasstarted");
+            console.log("hasstarted");
+            console.log(response.data);
+            setGameStarted(response.data);
+        };
+
+        // Fetch game info and check game status initially
+        fetchGameInfo();
+        checkGameStarted();
+
+        // Refresh game info and game status every 5 seconds
+        const intervalId = setInterval(() => {
+            fetchGameInfo();
+            checkGameStarted();
+        }, 5000);  // 5000 ms = 5 seconds
+
+        // Clear interval on component unmount
+        return () => clearInterval(intervalId);
+    }, [ip]);  // Add ip to the dependency array to rerun the effect if ip changes
+
+    if (gameStarted && localStorage.getItem("currentQuestion") === "0") {
+        window.location.href = "/questionview";
+    }
 
     return (
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <img
-                    className="mx-auto h-40 w-auto invert"
-                    src="https://pro-webdev.de/assets/logo-508d7998.png"
-                    alt="Pro Web-Development"
-                />
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Join the Students-Team
-                </h2>
+        <div className={"bg-white p-10"}>
+            <div className={"flex flex-col"}>
+                <div className={"flex justify-between"}>
+                    <div className={"flex justify-between w-full"}>
+                        <div className={"text-5xl font-bold"}>Userlist</div>
+                    </div>
+                </div>
             </div>
-
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Username
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                id="username"
-                                name="username"
-                                type="text"
-                                autoComplete="username"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={username}
-                                onChange={(event) => setUsername(event.target.value)}
-                            />
+            <ul role="list" className="divide-y divide-gray-100 mt-5">
+                {people.map((person) => (
+                    <li key={person.name} className="flex justify-between gap-x-6 py-5">
+                        <div className="flex gap-x-4">
+                            <img className="h-12 w-12 object-cover flex-none rounded-full bg-gray-50"
+                                 src={person.profilePicture} alt=""/>
+                            <div className="min-w-0 flex-auto h-full flex items-center">
+                                <p className="text-2xl font-bold leading-6 text-gray-900">{person.name}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                            Game Code
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                id="username"
-                                name="username"
-                                type="number"
-                                autoComplete="username"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={gameId}
-                                onChange={(event) => setGameId(event.target.value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="profilepicture" className="block text-sm font-medium leading-6 text-gray-900">
-                            Profile Picture (Picture URL)
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                id="profilepicture"
-                                name="profilepicture"
-                                type="text"
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={profilePicture}
-                                onChange={(event) => setProfilePicture(event.target.value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <button
-                            type="submit"
-                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                            Sign in
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    </li>
+                ))}
+            </ul>
         </div>
-    );
+    )
 }
