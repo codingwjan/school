@@ -36,7 +36,9 @@ export default function Userlist({ip}) {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-        //window.location.href = "/questionview";
+        setTimeout(function () {
+            window.location.href = "/questionview";
+        }, 1000);
     }
     return (
         <div className={"bg-white p-10"}>
@@ -64,7 +66,7 @@ const UserCard = ({person, postition}) => {
         <li key={person.email} className="flex justify-between gap-x-6 py-5">
             <div className="flex gap-x-4">
                 <div className={"text-3xl font-medium flex items-center"}>{postition}</div>
-                <img className="h-20 w-20 flex-none rounded-full bg-gray-50" src={person.profilePicture} alt=""/>
+                <img className="h-20 w-20 flex-none rounded-full bg-gray-50 object-cover" src={person.profilePicture} alt=""/>
                 <div className="flex gap-x-4">
                     <div className="min-w-0 flex-auto h-full flex items-center">
                         <p className="text-4xl font-bold leading-6 text-gray-900">{person.name}</p>

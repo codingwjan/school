@@ -20,7 +20,6 @@ export default function Loginteacher({ip}) {
                 // check if the data has a statusCode property with a value of 200
                 if (data.status === 200) {
                     localStorage.setItem("isTeacher", "true");
-                    localStorage.setItem("isTeacher", "0");
                     localStorage.setItem("teacherId", id.toString());
                     window.location.href = "/teacheruserlist";
                 }

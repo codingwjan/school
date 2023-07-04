@@ -9,7 +9,7 @@ const UserCard = ({person, postition}) => {
                 <img className="h-20 w-20 flex-none rounded-full bg-gray-50" src={person.profilePicture} alt=""/>
                 <div className="min-w-0 h-full my-auto">
                     <p className="text-3xl font-semibold leading-6 text-gray-900">{person.name}</p>
-                    <p className="mt-3 truncate text-2xl font-bold leading-5 text-gray-500">{person.score}</p>
+                    <p className="mt-3 truncate text-2xl font-bold leading-5 text-gray-500">{person.points}</p>
                 </div>
             </div>
         </li>
@@ -31,7 +31,7 @@ const TopPlayerCard = ({person, position}) => {
             <img src={person.profilePicture} alt={"logo"}
                  className={"w-44 h-44 rounded-full object-cover mx-auto"}/>
             <div className={"text-3xl font-bold mt-3"}>{person.name}</div>
-            <div className={"text-2xl font-medium"}>{person.score}</div>
+            <div className={"text-2xl font-medium"}>{person.points}</div>
         </div>
     )
 }
