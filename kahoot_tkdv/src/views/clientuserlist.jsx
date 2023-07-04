@@ -5,26 +5,43 @@ export default function Clientuserlist({ip}) {
     //get the list of users from the server
     const [gameStarted, setGameStarted] = useState(false);
     const [people, setPeople] = useState([]);
-    useEffect(() => {
-            fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"))
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    console.log(data.students[0].profilePicture)
-                    setPeople(data.students || []);
-                })
-        }
-        , [])
 
-    axios.get(ip + "/hasstarted").then((response) => {
-        console.log("hasstarted");
-        console.log(response.data);
-        setGameStarted(response.data);
-    })
+    useEffect(() => {
+        // Function to fetch game info
+        const fetchGameInfo = async () => {
+            const res = await fetch(ip + "/game/info?gameId=" + localStorage.getItem("gameId"));
+            const data = await res.json();
+            console.log(data);
+            console.log(data.students[0].profilePicture)
+            setPeople(data.students || []);
+        };
+
+        // Function to check if game has started
+        const checkGameStarted = async () => {
+            const response = await axios.get(ip + "/hasstarted");
+            console.log("hasstarted");
+            console.log(response.data);
+            setGameStarted(response.data);
+        };
+
+        // Fetch game info and check game status initially
+        fetchGameInfo();
+        checkGameStarted();
+
+        // Refresh game info and game status every 5 seconds
+        const intervalId = setInterval(() => {
+            fetchGameInfo();
+            checkGameStarted();
+        }, 5000);  // 5000 ms = 5 seconds
+
+        // Clear interval on component unmount
+        return () => clearInterval(intervalId);
+    }, [ip]);  // Add ip to the dependency array to rerun the effect if ip changes
 
     if (gameStarted && localStorage.getItem("currentQuestion") === "0") {
         window.location.href = "/questionview";
     }
+
     return (
         <div className={"bg-white p-10"}>
             <div className={"flex flex-col"}>
